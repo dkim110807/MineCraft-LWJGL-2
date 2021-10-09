@@ -1,4 +1,8 @@
 package org.minecraft.block.blocks;
 
-public class Bedrock {
+import org.minecraft.block.Block;
+
+public class Bedrock extends Block {
+
+
 }
