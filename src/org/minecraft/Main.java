@@ -5,20 +5,23 @@ import org.lwjgl.util.vector.Vector3f;
 import org.minecraft.block.Block;
 import org.minecraft.block.BlockMesh;
 import org.minecraft.block.BlockRender;
-import org.minecraft.block.BlockType;
-import org.minecraft.blocks.Bedrock;
-import org.minecraft.blocks.Dirt;
-import org.minecraft.blocks.Grass;
-import org.minecraft.blocks.Stone;
+import org.minecraft.block.blocks.Dirt;
+import org.minecraft.block.blocks.Grass;
+import org.minecraft.block.blocks.Stone;
 import org.minecraft.chunks.Chunk;
 import org.minecraft.graphics.shader.Shader;
-import org.minecraft.models.*;
+import org.minecraft.models.Camera;
+import org.minecraft.models.ModelTexture;
+import org.minecraft.models.RawModel;
+import org.minecraft.models.TexturedModel;
 import org.minecraft.render.Loader;
 import org.minecraft.render.MasterRenderer;
 import org.minecraft.utils.matrix.MatrixUtils;
 import org.minecraft.world.PerlinNoise;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
@@ -27,7 +30,7 @@ public class Main {
     public static final float NEAR = 0.01f;
     public static final float FAR = 1000f;
 
-    public static final int WORLD_SIZE = 64;
+    public static final int WORLD_SIZE = 128;
 
     private static List<BlockMesh> meshes = Collections.synchronizedList(new ArrayList<>());
     private static List<Vector3f> used = new ArrayList<>();
@@ -136,10 +139,9 @@ public class Main {
         block.setUniform1i("tex", 1);
         block.setUniformMat4f("pr_matrix", MatrixUtils.createProjectionMatrix());
 
-        new Dirt(new Vector3f(0, 0, 0));
-        new Grass(new Vector3f(0, 0, 0));
-        new Stone(new Vector3f(0, 0, 0));
-        new Bedrock(new Vector3f(0, 0, 0));
+        new Dirt(new Vector3f(0,0,0));
+        new Grass(0,0,0);
+        new Stone(0,0,0);
 
         AtomicInteger totalBlocks = new AtomicInteger();
 
@@ -157,20 +159,20 @@ public class Main {
 
                                     int height = (int) noise.generateHeight(x * Chunk.SIZE + i, z * Chunk.SIZE + j);
 
-                                    blocks.add(new Bedrock(new Vector3f(i, 29, j)));
-                                    for (int k = 30; k <= height + 47; k++) {
+                                    /*blocks.add(new Bedrock(new Vector3f(i, 29, j)));*/
+                                    for (int k = 20; k <= height + 36; k++) {
                                         blocks.add(new Stone(new Vector3f(i, k, j)));
                                     }
-                                    blocks.add(new Dirt(new Vector3f(i, height + 48, j)));
-                                    blocks.add(new Dirt(new Vector3f(i, height + 49, j)));
-                                    blocks.add(new Dirt(new Vector3f(i, height + 50, j)));
-                                    blocks.add(new Grass(new Vector3f(i, height + 51, j)));
+                                    blocks.add(new Dirt(new Vector3f(i, height + 37, j)));
+                                    blocks.add(new Dirt(new Vector3f(i, height + 38, j)));
+                                    blocks.add(new Dirt(new Vector3f(i, height + 39, j)));
+                                    blocks.add(new Grass(new Vector3f(i, height + 40, j)));
                                 }
                             }
 
                             totalBlocks.addAndGet(blocks.size());
 
-                            BlockMesh mesh = new BlockMesh(new Chunk(blocks, new Vector3f(x * 16, 0, z * 16)));
+                            BlockMesh mesh = new BlockMesh(new Chunk(blocks, new Vector3f(x * Chunk.SIZE, 0, z * Chunk.SIZE)));
 
                             meshes.add(mesh);
                             used.add(new Vector3f(x * Chunk.SIZE, 0, z * Chunk.SIZE));
@@ -195,9 +197,7 @@ public class Main {
 
                 BlockMesh mesh = meshes.get(index);
 
-                for (BlockType type : mesh.positions.keySet()) {
-                    blocks.add(new Block(loader.load(mesh.positions.get(type), mesh.tcs.get(type), type.texture), mesh.origin));
-                }
+                blocks.add(new Block(loader.load(mesh.positions,mesh.tcs,  Block.TEXTURE),mesh.origin));
 
                 mesh.positions = null;
                 mesh.tcs = null;

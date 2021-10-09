@@ -3,6 +3,8 @@ package org.minecraft.block;
 import org.jetbrains.annotations.NotNull;
 import org.lwjgl.util.vector.Vector3f;
 
+import java.util.HashMap;
+
 public abstract class AbstractBlock extends BlockRender{
 
     /**
@@ -60,8 +62,7 @@ public abstract class AbstractBlock extends BlockRender{
      *
      * @return The type of this block
      * @author 4347
-     * @see BlockType
+     * @see Block.Type
      */
-    public abstract BlockType getType();
-
+    public abstract Block.Type getType();
 }

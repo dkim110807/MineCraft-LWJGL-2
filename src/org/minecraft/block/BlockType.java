@@ -1,5 +1,11 @@
 package org.minecraft.block;
 
+/**
+ *
+ * Old Way
+ *
+ */
+@Deprecated
 public enum BlockType {
 
     NONE("none",0,0,null),

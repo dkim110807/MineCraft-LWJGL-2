@@ -14,9 +14,14 @@ import java.util.Map;
  *
  * Represents the dirt block
  *
+ * Use org.minecraft.block.blocks.Dirt instead
+ *
  * @author 4347
  * @see org.minecraft.block.Block
+ * @deprecated Old Way
+ * @see org.minecraft.block.blocks.Dirt
  */
+@Deprecated
 public class Dirt extends Block {
 
     /**
@@ -143,7 +148,7 @@ public class Dirt extends Block {
         super(model,position,rotation);
     }
 
-    /**
+    /*/**
      *
      * Returns the type of this block
      *
@@ -152,12 +157,12 @@ public class Dirt extends Block {
      * @return The type of this block. (BlockType.DIRT)
      * @author 4347
      * @see Block#getType()
-     */
+     * /
     @NotNull
     @Override
     public BlockType getType() {
         return type;
-    }
+    }*/
 
     /**
      *

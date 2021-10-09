@@ -16,7 +16,9 @@ import java.util.Map;
  *
  * @author 4347
  * @see org.minecraft.block.Block
+ * @deprecated Old Way
  */
+@Deprecated
 public class Grass extends Block {
 
     /**
@@ -192,7 +194,7 @@ public class Grass extends Block {
         super(model,position,rotation);
     }
 
-    /**
+    /*/**
      *
      * Returns the type of this block
      *
@@ -201,12 +203,12 @@ public class Grass extends Block {
      * @return The type of this block. (BlockType.GRASS)
      * @author 4347
      * @see Block#getType()
-     */
+     * /
     @NotNull
     @Override
     public BlockType getType() {
         return type;
-    }
+    }*/
 
     /**
      *
