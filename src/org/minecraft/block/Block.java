@@ -330,6 +330,18 @@ public class Block extends AbstractBlock {
         this.rotation = new Vector3f(0, 0, 0);
     }
 
+    /**
+     * Create a block with position, rotation and texture
+     * <p></p>
+     *
+     * @deprecated Use {@link #Block(BlockModel, Vector3f, Vector3f)} instead
+     * @param texture The texture of the block
+     * @param position The position of the block
+     * @param rotation The rotation of the block
+     * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
+     * @author 4347
+     */
+    @Deprecated
     public Block(@NotNull BlockTexture texture, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
 
         if (position.y < 0 || position.y > 255) {
@@ -342,6 +354,15 @@ public class Block extends AbstractBlock {
         this.rotation = rotation;
     }
 
+    /**
+     * Create a block with position and model
+     * <p></p>
+     *
+     * @param model The model of this block
+     * @param position The position of the block
+     * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
+     * @author 4347
+     */
     public Block(@NotNull BlockModel model, @NotNull Vector3f position) throws IllegalArgumentException {
 
         if (position.y < 0 || position.y > 255) {
@@ -354,6 +375,16 @@ public class Block extends AbstractBlock {
         this.rotation = new Vector3f(0, 0, 0);
     }
 
+    /**
+     * Create a block with position, rotation and model
+     * <p></p>
+     *
+     * @param model The model of this block
+     * @param position The position of the block
+     * @param rotation The rotation of the block
+     * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
+     * @author 4347
+     */
     public Block(@NotNull BlockModel model, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
 
         if (position.y < 0 || position.y > 255) {
@@ -369,7 +400,8 @@ public class Block extends AbstractBlock {
     /**
      * Returns the name of the block
      * <p></p>
-     * Default is "minecraft:none"
+     * Default is <b>"minecraft:none"
+     * <p></p>
      *
      * @return The name of the block
      * @author 4347
@@ -574,6 +606,7 @@ public class Block extends AbstractBlock {
 
     /**
      * Load the vertices,tcs,texture to BlockModel
+     * <p></p>
      *
      * @param vertices The vertices to load
      * @param tcs      The texture coordinates
@@ -597,6 +630,7 @@ public class Block extends AbstractBlock {
 
     /**
      * Load the texture to the vbos
+     * <p></p>
      *
      * @param path The path of the file
      * @return The texture id of the loaded texture
@@ -618,6 +652,7 @@ public class Block extends AbstractBlock {
 
     /**
      * Creates the vao and adds to vaos
+     * <p></p>
      *
      * @return The vao id
      * @author 4347
@@ -631,6 +666,15 @@ public class Block extends AbstractBlock {
         return vaoID;
     }
 
+    /**
+     * Store data in attribute list
+     * <p></p>
+     *
+     * @param data The data to store
+     * @param attribute The attribute number to store
+     * @param dimensions The dimensions of the data
+     * @author 4347
+     */
     private static void storeDataInAttributeList(float[] data, int attribute, int dimensions) {
         int vboID = GL15.glGenBuffers();
 
@@ -641,6 +685,13 @@ public class Block extends AbstractBlock {
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
     }
 
+    /**
+     * Bind indices
+     * <p></p>
+     *
+     * @param indices The indices to bind
+     * @author 4347
+     */
     private static void bindIndicesBuffer(int[] indices) {
         int vboID = GL15.glGenBuffers();
 
@@ -651,6 +702,7 @@ public class Block extends AbstractBlock {
 
     /**
      * Clean up the vaos, vbos, textures
+     * <p></p>
      *
      * @author 4347
      */
