@@ -252,7 +252,15 @@ public class Block extends AbstractBlock {
          * @see OakLog
          * @author 4347
          */
-        OAK_LOG("minecraft:oak_log",1f,1f);
+        OAK_LOG("minecraft:oak_log",1f,1f),
+        /**
+         * The oak leaves.
+         * <p></p>
+         *
+         * @see org.minecraft.block.blocks.leaves.OakLeaves
+         * @author 4347
+         */
+        OAK_LEAVES("minecraft:oak_leaves",1f,1f);
 
         /**
          * The name of the block.
