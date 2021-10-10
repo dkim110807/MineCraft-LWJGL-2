@@ -1,4 +1,4 @@
-package org.minecraft.block.blocks;
+package org.minecraft.block.blocks.logs;
 
 import org.jetbrains.annotations.NotNull;
 import org.lwjgl.util.vector.Vector3f;
@@ -10,16 +10,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <h1>Represents the DIRT block</h1>
+ * <h1>Represents the OAK LOG</h1>
  *
  * @author 4347
  * @see Block
  */
 @SuppressWarnings("all")
-public class Dirt extends Block {
+public class OakLog extends Block {
 
     /**
-     * The texture of this block({@link Dirt DIRT}).
+     * The texture of this block({@link OakLog Oak Log})
      * <p></p>
      *
      * @author 4347
@@ -32,9 +32,9 @@ public class Dirt extends Block {
      * <p></p>
      *
      * @author 4347
-     * @see Block.Type#DIRT
+     * @see Block.Type#OAK_LOG
      */
-    private static final Block.Type TYPE = Block.Type.DIRT;
+    private static final Block.Type TYPE = Block.Type.OAK_LOG;
 
     /**
      * The name of this block.
@@ -42,7 +42,7 @@ public class Dirt extends Block {
      *
      * @author 4347
      */
-    private static final String NAME = "minecraft:dirt_block";
+    private static final String NAME = "minecraft:oak_log";
 
     /**
      * The texture coordinates of this block
@@ -55,52 +55,52 @@ public class Dirt extends Block {
      */
     private static final float[] TCS = {
             //Positive X
-            2 / 25f, 0 / 25f,
-            2 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 0 / 25f,
-            2 / 25f, 0 / 25f,
+            5 / 25f, 0 / 25f,
+            5 / 25f, 1 / 25f,
+            6 / 25f, 1 / 25f,
+            6 / 25f, 1 / 25f,
+            6 / 25f, 0 / 25f,
+            5 / 25f, 0 / 25f,
 
             //Negative X
-            2 / 25f, 0 / 25f,
-            2 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 0 / 25f,
-            2 / 25f, 0 / 25f,
+            5 / 25f, 0 / 25f,
+            5 / 25f, 1 / 25f,
+            6 / 25f, 1 / 25f,
+            6 / 25f, 1 / 25f,
+            6 / 25f, 0 / 25f,
+            5 / 25f, 0 / 25f,
 
             //Positive Y
-            2 / 25f, 0 / 25f,
-            2 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 0 / 25f,
-            2 / 25f, 0 / 25f,
+            6 / 25f, 0 / 25f,
+            6 / 25f, 1 / 25f,
+            7 / 25f, 1 / 25f,
+            7 / 25f, 1 / 25f,
+            7 / 25f, 0 / 25f,
+            6 / 25f, 0 / 25f,
 
             //Negative Y
-            2 / 25f, 0 / 25f,
-            2 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 0 / 25f,
-            2 / 25f, 0 / 25f,
+            6 / 25f, 0 / 25f,
+            6 / 25f, 1 / 25f,
+            7 / 25f, 1 / 25f,
+            7 / 25f, 1 / 25f,
+            7 / 25f, 0 / 25f,
+            6 / 25f, 0 / 25f,
 
             //Positive Z
-            2 / 25f, 0 / 25f,
-            2 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 0 / 25f,
-            2 / 25f, 0 / 25f,
+            5 / 25f, 0 / 25f,
+            5 / 25f, 1 / 25f,
+            6 / 25f, 1 / 25f,
+            6 / 25f, 1 / 25f,
+            6 / 25f, 0 / 25f,
+            5 / 25f, 0 / 25f,
 
             //Negative Z
-            2 / 25f, 0 / 25f,
-            2 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 1 / 25f,
-            3 / 25f, 0 / 25f,
-            2 / 25f, 0 / 25f
+            5 / 25f, 0 / 25f,
+            5 / 25f, 1 / 25f,
+            6 / 25f, 1 / 25f,
+            6 / 25f, 1 / 25f,
+            6 / 25f, 0 / 25f,
+            5 / 25f, 0 / 25f
     };
 
     /**
@@ -114,9 +114,9 @@ public class Dirt extends Block {
     public static final BlockModel MODEL = load(VERTICES, TCS, TEXTURE);
 
     /**
-     * Create a block with the position x,y,z with the default {@link #MODEL model}
+     * Create a block with the position x, y, z with the default {@link #MODEL model}
      * <p></p>
-     * This is same as {@link #Dirt(Vector3f)Dirt(new Vector3f(x, y, z))}
+     * This is same as {@link #OakLog(Vector3f)OakLog(new Vector3f(x, y, z))}
      * <p></p>
      *
      * @param x The x position of the block
@@ -124,42 +124,40 @@ public class Dirt extends Block {
      * @param z The z position of the block
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
-     * @see #Dirt(Vector3f)
+     * @see #OakLog(Vector3f)
      */
-    public Dirt(float x, float y, float z) throws IllegalArgumentException {
+    public OakLog(float x, float y, float z) throws IllegalArgumentException {
         super(MODEL, new Vector3f(x, y, z));
     }
 
     /**
-     * Create a block with the position with the default {@link Dirt#MODEL model}
+     * Create a block with the position with the default {@link #MODEL model}
      * <p></p>
-     * This is same as {@link #Dirt(BlockModel, Vector3f)Dirt(Dirt.MODEL, position)}
+     * This is same as {@link #OakLog(BlockModel, Vector3f)OakLog(OakLog.MODEL, position)}
      * <p></p>
      *
      * @param position The position of this block
-     * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
+     * @throws IllegalArgumentException If the y value of the position is lower than 0 or greater than 255
      * @author 4347
-     * @see #Dirt(BlockModel, Vector3f)
+     * @see #OakLog(BlockModel, Vector3f)
      */
-    public Dirt(@NotNull Vector3f position) throws IllegalArgumentException {
+    public OakLog(@NotNull Vector3f position) throws IllegalArgumentException {
         super(MODEL, position);
     }
 
     /**
-     * Create a block with the position and rotation with the default {@link Dirt#MODEL model}
+     * Create a block with the position and rotation with the default {@link #MODEL model}
      * <p></p>
-     * This is same as {@link #Dirt(BlockModel, Vector3f, Vector3f)Dirt(Dirt.MODEL, position, rotation)}
+     * This is same as {@link #OakLog(BlockModel, Vector3f, Vector3f)OakLog(OakLog.MODEL, position, rotation)}
      * <p></p>
      *
      * @param position The position of this block
      * @param rotation The rotation of this block
-     * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
+     * @throws IllegalArgumentException If the y value of the position is lower than 0 or greater than 255
      * @author 4347
-     * @see #Dirt(BlockModel, Vector3f, Vector3f)
-     * @deprecated No rotation for block {@link Dirt <i>DIRT</i>}
+     * @see #OakLog(BlockModel, Vector3f, Vector3f)
      */
-    @Deprecated
-    public Dirt(@NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
+    public OakLog(@NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
         super(MODEL, position, rotation);
     }
 
@@ -169,15 +167,16 @@ public class Dirt extends Block {
      *
      * @param texture  The texture of the block
      * @param position The position of the block
-     * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
+     * @throws IllegalArgumentException If the y value of the position is lower than 0 or greater than 255
      * @author 4347
-     * @see #Dirt(BlockModel, Vector3f)
-     * @deprecated Use {@link #Dirt(BlockModel, Vector3f)} instead
+     * @see #OakLog(BlockModel, Vector3f)
+     * @deprecated Use {@link #OakLog(BlockModel, Vector3f)} instead
      */
     @Deprecated
-    public Dirt(@NotNull BlockTexture texture, @NotNull Vector3f position) throws IllegalArgumentException {
+    public OakLog(@NotNull BlockTexture texture, @NotNull Vector3f position) throws IllegalArgumentException {
         super(texture, position);
     }
+
 
     /**
      * Create a block with the position,rotation and texture
@@ -188,73 +187,72 @@ public class Dirt extends Block {
      * @param rotation The rotation of the block
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
-     * @see #Dirt(BlockModel, Vector3f, Vector3f)
-     * @deprecated Use {@link #Dirt(BlockModel, Vector3f, Vector3f)} instead
+     * @see #OakLog(BlockModel, Vector3f, Vector3f)
+     * @deprecated Use {@link #OakLog(BlockModel, Vector3f, Vector3f)} instead
      */
     @Deprecated
-    public Dirt(@NotNull BlockTexture texture, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
+    public OakLog(@NotNull BlockTexture texture, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
         super(texture, position, rotation);
     }
 
     /**
      * Create a block with the position x,y,z and the custom model
      * <p></p>
-     * This is same as {@link #Dirt(BlockModel, Vector3f)Dirt(model, new Vector3f(x, y, z))}
+     * This is same as {@link #OakLog(BlockModel, Vector3f)OakLog(model, new Vector3f(x, y, z))}
      * <p></p>
      *
-     * @param model The model of this block. Use Dirt.{@link Dirt#MODEL} or custom model
+     * @param model The model of this block. Use OakLog.{@link #MODEL} or custom model
      * @param x     The x position of the block
      * @param y     The y position of the block
      * @param z     The z position of the block
-     * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
+     * @throws IllegalArgumentException If the y value of the position is lower than 0 or greater than 255
      * @author 4347
-     * @see #Dirt(BlockModel, Vector3f)
+     * @see #OakLog(BlockModel, Vector3f)
      */
-    public Dirt(@NotNull BlockModel model, float x, float y, float z) throws IllegalArgumentException {
+    public OakLog(@NotNull BlockModel model, float x, float y, float z) throws IllegalArgumentException {
         super(model, new Vector3f(x, y, z));
     }
 
     /**
-     * Create a block with the position and model
+     * Creatte a block with the position and model
      * <p></p>
      *
-     * @param model    The model of this block. Use Dirt.{@link Dirt#MODEL} or custom model
-     * @param position The position of this block.
+     * @param model    The model of this block. Use OakLog.{@link #MODEL} or custom model
+     * @param position The position of this block
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
      * @see #MODEL
      */
-    public Dirt(@NotNull BlockModel model, @NotNull Vector3f position) throws IllegalArgumentException {
+    public OakLog(@NotNull BlockModel model, @NotNull Vector3f position) throws IllegalArgumentException {
         super(model, position);
     }
 
     /**
-     * Create a block with the position,rotation and model
+     * Create a block with the position, rotation and model
      * <p></p>
      *
-     * @param model    The model of this block. Use Dirt.{@link Dirt#MODEL} or custom model
+     * @param model    The model of this block. Use OakLog.{@link #MODEL} or custom model
      * @param position The position of this block.
      * @param rotation The rotation of this block.
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
      * @see #MODEL
-     * @deprecated No rotation for block {@link Dirt <i>DIRT</i>}
      */
-    @Deprecated
-    public Dirt(@NotNull BlockModel model, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
+    public OakLog(@NotNull BlockModel model, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
         super(model, position, rotation);
     }
 
+
     /**
      * Returns the type of this block
-     * <ul><li>In this case it will return <i>{@link Block.Type#DIRT}
+     * <ul><li>In this case it will return <i>{@link Block.Type#OAK_LOG}
      * <p></p>
      *
-     * @return The type of this block. Which is <i>{@link Block.Type#DIRT}
+     * @return The type of this block. Which is <i>{@link Block.Type#OAK_LOG}
      * @author 4347
      * @see Block#getType()
      * @see Block.Type
-     * @see Block.Type#DIRT
+     * @see Block.Type#OAK_LOG
      */
     @NotNull
     @Override
@@ -262,15 +260,16 @@ public class Dirt extends Block {
         return TYPE;
     }
 
+
     /**
      * Returns the texture coordinates of this block
      * <li>In this case it will return the {@link #TCS}
      * <p></p>
      *
-     * @return The texture coordinates of this block({@link org.minecraft.block.blocks.Dirt DIRT}).
+     * @return The texture coordinates of this block({@link org.minecraft.block.blocks.logs.OakLog OAK LOG}).
      * @author 4347
      * @see Block#TCS
-     * @see Dirt#TCS
+     * @see OakLog#TCS
      */
     @NotNull
     @Override
@@ -450,7 +449,7 @@ public class Dirt extends Block {
         if (getClass() != obj.getClass())
             return false;
 
-        Dirt other = (Dirt) obj;
+        OakLog other = (OakLog) obj;
         if (!other.getPosition().equals(getPosition()))
             return false;
         if (!other.getModel().equals(getModel()))

@@ -6,6 +6,7 @@ import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 import org.lwjgl.util.vector.Vector3f;
+import org.minecraft.block.blocks.logs.OakLog;
 import org.minecraft.graphics.TextureLoader;
 import org.minecraft.utils.buffer.BufferUtils;
 
@@ -243,7 +244,15 @@ public class Block extends AbstractBlock {
          * @author 4347
          * @see org.minecraft.block.blocks.Bedrock
          */
-        BEDROCK("minecraft:bedrock", 1f, 1f);
+        BEDROCK("minecraft:bedrock", 1f, 1f),
+        /**
+         * The oak log.
+         * <p></p>
+         *
+         * @see OakLog
+         * @author 4347
+         */
+        OAK_LOG("minecraft:oak_log",1f,1f);
 
         /**
          * The name of the block.

@@ -9,6 +9,7 @@ import org.minecraft.block.blocks.Bedrock;
 import org.minecraft.block.blocks.Dirt;
 import org.minecraft.block.blocks.Grass;
 import org.minecraft.block.blocks.Stone;
+import org.minecraft.block.blocks.logs.OakLog;
 import org.minecraft.chunks.Chunk;
 import org.minecraft.graphics.shader.Shader;
 import org.minecraft.models.Camera;
@@ -143,6 +144,7 @@ public class Main {
         new Grass(0,0,0);
         new Stone(0,0,0);
         new Bedrock(0,0,0);
+        new OakLog(0,0,0);
 
         AtomicInteger totalBlocks = new AtomicInteger();
 
@@ -160,14 +162,14 @@ public class Main {
 
                                     int height = (int) noise.generateHeight(x * Chunk.SIZE + i, z * Chunk.SIZE + j);
 
-                                    blocks.add(new Bedrock(new Vector3f(i, 19, j)));
-                                    for (int k = 20; k <= height + 36; k++) {
+                                    blocks.add(new Bedrock(new Vector3f(i, 49, j)));
+                                    for (int k = 50; k <= height + 56; k++) {
                                         blocks.add(new Stone(new Vector3f(i, k, j)));
                                     }
-                                    blocks.add(new Dirt(new Vector3f(i, height + 37, j)));
-                                    blocks.add(new Dirt(new Vector3f(i, height + 38, j)));
-                                    blocks.add(new Dirt(new Vector3f(i, height + 39, j)));
-                                    blocks.add(new Grass(new Vector3f(i, height + 40, j)));
+                                    blocks.add(new Dirt(new Vector3f(i, height + 57, j)));
+                                    blocks.add(new Dirt(new Vector3f(i, height + 58, j)));
+                                    blocks.add(new Dirt(new Vector3f(i, height + 59, j)));
+                                    blocks.add(new Grass(new Vector3f(i, height + 60, j)));
                                 }
                             }
 
