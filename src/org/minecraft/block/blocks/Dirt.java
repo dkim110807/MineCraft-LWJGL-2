@@ -22,8 +22,8 @@ public class Dirt extends Block {
      * The texture of this block(DIRT).
      * <p></p>
      *
-     * @see BlockTexture
      * @author 4347
+     * @see BlockTexture
      */
     private static final BlockTexture TEXTURE = new BlockTexture(loadTexture("texture.png"));
 
@@ -31,8 +31,8 @@ public class Dirt extends Block {
      * The type of this block.
      * <p></p>
      *
-     * @see Block.Type#DIRT
      * @author 4347
+     * @see Block.Type#DIRT
      */
     private static final Block.Type TYPE = Block.Type.DIRT;
 
@@ -116,7 +116,7 @@ public class Dirt extends Block {
     /**
      * Create a block with the position x,y,z with the default model (Dirt.model)
      * <p></p>
-     * This is same as Dirt(new Vector3f(x,y,z)
+     * This is same as Dirt(new Vector3f(x,y,z))
      * <p></p>
      *
      * @param x The x position of the block
@@ -167,6 +167,7 @@ public class Dirt extends Block {
      * Create a block with the position
      * <p></p>
      *
+     * @param texture  The texture of the block
      * @param position The position of the block
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
@@ -182,6 +183,7 @@ public class Dirt extends Block {
      * Create a block with the position,rotation
      * <p></p>
      *
+     * @param texture  The texture of the block
      * @param position The position of the block
      * @param rotation The rotation of the block
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
@@ -190,7 +192,7 @@ public class Dirt extends Block {
      * @deprecated No rotation for block DIRT
      */
     @Deprecated
-    public Dirt(@NotNull BlockTexture texture, Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
+    public Dirt(@NotNull BlockTexture texture, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
         super(texture, position, rotation);
     }
 
@@ -201,22 +203,22 @@ public class Dirt extends Block {
      * <p></p>
      *
      * @param model The model of this block. Use Dirt.model or custom model
-     * @param x The x position of the block
-     * @param y The y position of the block
-     * @param z The z position of the block
+     * @param x     The x position of the block
+     * @param y     The y position of the block
+     * @param z     The z position of the block
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
      * @see #Dirt(BlockModel, Vector3f)
      */
-    public Dirt(@NotNull BlockModel model,float x, float y, float z) throws IllegalArgumentException {
-        super(model,new Vector3f(x,y,z));
+    public Dirt(@NotNull BlockModel model, float x, float y, float z) throws IllegalArgumentException {
+        super(model, new Vector3f(x, y, z));
     }
 
     /**
      * Create a block with the position and model
      * <p></p>
      *
-     * @param model    The model of this block. Use Dirt.model or custom model
+     * @param model    The model of this block. Use Dirt.MODEL or custom model
      * @param position The position of this block.
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
@@ -230,7 +232,7 @@ public class Dirt extends Block {
      * Create a block with the position,rotation and model
      * <p></p>
      *
-     * @param model    The model of this block. Use Dirt.model or custom model
+     * @param model    The model of this block. Use Dirt.MODEL or custom model
      * @param position The position of this block.
      * @param rotation The rotation of this block.
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
@@ -354,7 +356,6 @@ public class Dirt extends Block {
     }
 
     /**
-     *
      * Returns the width of this block.
      * <p></p>
      * In this case it will return 1f.
@@ -370,15 +371,14 @@ public class Dirt extends Block {
     }
 
     /**
-     *
      * Returns the height of this block.
      * <p></p>
      * In this case it will return 1f.
      * <p></p>
      *
      * @return The height of this block which is 1f
-     * @see Block#getHeight
      * @author 4347
+     * @see Block#getHeight
      */
     @Override
     public float getHeight() {
@@ -386,19 +386,18 @@ public class Dirt extends Block {
     }
 
     /**
-     *
      * Returns the scale of this block.
      * <p></p>
      * In this case it will return Vector3f(1,1,1).
      * <p></p>
      *
      * @return The scale of this block which is Vector3f(1,1,1)
-     * @see Block#getScale()
      * @author 4347
+     * @see Block#getScale()
      */
     @Override
     public Vector3f getScale() {
-        return new Vector3f(1,1,1);
+        return new Vector3f(1, 1, 1);
     }
 
     /**

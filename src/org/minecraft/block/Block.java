@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("all")
 public class Block extends AbstractBlock {
 
     /**
@@ -141,7 +142,8 @@ public class Block extends AbstractBlock {
         NONE("none",0f,0f),
         DIRT("minecraft:dirt_block",1f,1f),
         GRASS("minecraft:grass_block",1f,1f),
-        STONE("minecraft:stone",1f,1f);
+        STONE("minecraft:stone",1f,1f),
+        BEDROCK("minecraft:bedrock",1f,1f);
 
         public final String name;
         public final float width;

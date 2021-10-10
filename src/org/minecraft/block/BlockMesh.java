@@ -123,12 +123,23 @@ public class BlockMesh {
 
         for (Block block : blocks) {
 
+            /*boolean px = (chunk.getBlockAt(block.getPosition().x + 1, block.getPosition().y, block.getPosition().z) == null);
+            boolean nx = (chunk.getBlockAt(block.getPosition().x - 1, block.getPosition().y, block.getPosition().z) == null);
+            boolean py = (chunk.getBlockAt(block.getPosition().x, block.getPosition().y + 1, block.getPosition().z) == null);
+            boolean ny = chunk.getBlockAt(block.getPosition().x, block.getPosition().y - 1, block.getPosition().z) == null;
+            boolean pz = chunk.getBlockAt(block.getPosition().x, block.getPosition().y, block.getPosition().z + 1) == null;
+            boolean nz = chunk.getBlockAt(block.getPosition().x, block.getPosition().y, block.getPosition().z - 1) == null;
+*/
             boolean px = false;
             boolean nx = false;
             boolean py = false;
             boolean ny = false;
             boolean pz = false;
             boolean nz = false;
+
+            /*if (chunk.getBlockAt(block.getPosition().x + 1, block.getPosition().y, block.getPosition().z) != null) {
+                px = true;
+            }*/
 
             for (Block other : blocks) {
 

@@ -5,6 +5,7 @@ import org.lwjgl.util.vector.Vector3f;
 import org.minecraft.block.Block;
 import org.minecraft.block.BlockMesh;
 import org.minecraft.block.BlockRender;
+import org.minecraft.block.blocks.Bedrock;
 import org.minecraft.block.blocks.Dirt;
 import org.minecraft.block.blocks.Grass;
 import org.minecraft.block.blocks.Stone;
@@ -30,11 +31,10 @@ public class Main {
     public static final float NEAR = 0.01f;
     public static final float FAR = 1000f;
 
-    public static final int WORLD_SIZE = 128;
+    public static final int WORLD_SIZE = 64;
 
     private static List<BlockMesh> meshes = Collections.synchronizedList(new ArrayList<>());
     private static List<Vector3f> used = new ArrayList<>();
-    private static List<BlockMesh> meshes2 = new ArrayList<>();
 
     private static boolean close = false;
 
@@ -142,6 +142,7 @@ public class Main {
         new Dirt(new Vector3f(0,0,0));
         new Grass(0,0,0);
         new Stone(0,0,0);
+        new Bedrock(0,0,0);
 
         AtomicInteger totalBlocks = new AtomicInteger();
 
@@ -159,7 +160,7 @@ public class Main {
 
                                     int height = (int) noise.generateHeight(x * Chunk.SIZE + i, z * Chunk.SIZE + j);
 
-                                    /*blocks.add(new Bedrock(new Vector3f(i, 29, j)));*/
+                                    blocks.add(new Bedrock(new Vector3f(i, 19, j)));
                                     for (int k = 20; k <= height + 36; k++) {
                                         blocks.add(new Stone(new Vector3f(i, k, j)));
                                     }
