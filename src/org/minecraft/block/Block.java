@@ -19,75 +19,103 @@ public class Block extends AbstractBlock {
 
     /**
      * The vertices for 1,1,1 block
+     * <p></p>
+     *
+     * @author 4347
      */
     protected static final float[] VERTICES = new float[]{
-            0.5f,0.5f,-0.5f,
-            0.5f,-0.5f,-0.5f,
-            0.5f,-0.5f,0.5f,
-            0.5f,-0.5f,0.5f,
-            0.5f,0.5f,0.5f,
-            0.5f,0.5f,-0.5f,
+            //Positive X
+            0.5f, 0.5f, -0.5f,
+            0.5f, -0.5f, -0.5f,
+            0.5f, -0.5f, 0.5f,
+            0.5f, -0.5f, 0.5f,
+            0.5f, 0.5f, 0.5f,
+            0.5f, 0.5f, -0.5f,
 
-            -0.5f,0.5f,-0.5f,
-            -0.5f,-0.5f,-0.5f,
-            -0.5f,-0.5f,0.5f,
-            -0.5f,-0.5f,0.5f,
-            -0.5f,0.5f,0.5f,
-            -0.5f,0.5f,-0.5f,
+            //Negative X
+            -0.5f, 0.5f, -0.5f,
+            -0.5f, -0.5f, -0.5f,
+            -0.5f, -0.5f, 0.5f,
+            -0.5f, -0.5f, 0.5f,
+            -0.5f, 0.5f, 0.5f,
+            -0.5f, 0.5f, -0.5f,
 
-            -0.5f,0.5f,0.5f,
-            -0.5f,0.5f,-0.5f,
-            0.5f,0.5f,-0.5f,
-            0.5f,0.5f,-0.5f,
-            0.5f,0.5f,0.5f,
-            -0.5f,0.5f,0.5f,
+            //Positive Y
+            -0.5f, 0.5f, 0.5f,
+            -0.5f, 0.5f, -0.5f,
+            0.5f, 0.5f, -0.5f,
+            0.5f, 0.5f, -0.5f,
+            0.5f, 0.5f, 0.5f,
+            -0.5f, 0.5f, 0.5f,
 
-            -0.5f,-0.5f,0.5f,
-            -0.5f,-0.5f,-0.5f,
-            0.5f,-0.5f,-0.5f,
-            0.5f,-0.5f,-0.5f,
-            0.5f,-0.5f,0.5f,
-            
-            -0.5f,0.5f,0.5f,
-            -0.5f,-0.5f,0.5f,
-            0.5f,-0.5f,0.5f,
-            0.5f,-0.5f,0.5f,
-            0.5f,0.5f,0.5f,
-            -0.5f,0.5f,0.5f,
+            //Negative Y
+            -0.5f, -0.5f, 0.5f,
+            -0.5f, -0.5f, -0.5f,
+            0.5f, -0.5f, -0.5f,
+            0.5f, -0.5f, -0.5f,
+            0.5f, -0.5f, 0.5f,
 
-            -0.5f,0.5f,-0.5f,
-            -0.5f,-0.5f,-0.5f,
-            0.5f,-0.5f,-0.5f,
-            0.5f,-0.5f,-0.5f,
-            0.5f,0.5f,-0.5f,
-            -0.5f,0.5f,-0.5f
+            //Positive Z
+            -0.5f, 0.5f, 0.5f,
+            -0.5f, -0.5f, 0.5f,
+            0.5f, -0.5f, 0.5f,
+            0.5f, -0.5f, 0.5f,
+            0.5f, 0.5f, 0.5f,
+            -0.5f, 0.5f, 0.5f,
+
+            //Negative Z
+            -0.5f, 0.5f, -0.5f,
+            -0.5f, -0.5f, -0.5f,
+            0.5f, -0.5f, -0.5f,
+            0.5f, -0.5f, -0.5f,
+            0.5f, 0.5f, -0.5f,
+            -0.5f, 0.5f, -0.5f
     };
 
     /**
      * Indices for default vertices
+     * <p></p>
+     *
+     * @author 4347
      * @deprecated Old method (Can't mesh with indices)
      */
     @Deprecated
     protected static final int[] INDICES = new int[]{
+            //Positive X
             0, 1, 3,
             3, 1, 2,
+
+            //Negative X
             4, 5, 7,
             7, 5, 6,
+
+            //Positive Y
             8, 9, 11,
             11, 9, 10,
+
+            //Negative Y
             12, 13, 15,
             15, 13, 14,
+
+            //Positive Z
             16, 17, 19,
             19, 17, 18,
+
+            //Negative Z
             20, 21, 23,
             23, 21, 22
     };
 
     /**
      * The default TCS for blocks
-     * etc) dirt,planks
+     * <p></p>
+     *
+     * @author 4347
+     * @deprecated Old method
      */
+    @Deprecated
     protected static final float[] TCS = new float[]{
+            //Positive X
             0, 0,
             0, 1,
             1, 1,
@@ -95,6 +123,7 @@ public class Block extends AbstractBlock {
             1, 0,
             0, 0,
 
+            //Negative X
             0, 0,
             0, 1,
             1, 1,
@@ -102,6 +131,7 @@ public class Block extends AbstractBlock {
             1, 0,
             0, 0,
 
+            //Positive Y
             0, 0,
             0, 1,
             1, 1,
@@ -109,6 +139,7 @@ public class Block extends AbstractBlock {
             1, 0,
             0, 0,
 
+            //Negative Y
             0, 0,
             0, 1,
             1, 1,
@@ -116,6 +147,7 @@ public class Block extends AbstractBlock {
             1, 0,
             0, 0,
 
+            //Positive Z
             0, 0,
             0, 1,
             1, 1,
@@ -123,6 +155,7 @@ public class Block extends AbstractBlock {
             1, 0,
             0, 0,
 
+            //Negative Z
             0, 0,
             0, 1,
             1, 1,
@@ -131,25 +164,111 @@ public class Block extends AbstractBlock {
             0, 0
     };
 
+    /**
+     * List of vao id to clear at the end of the program
+     * <p></p>
+     *
+     * @author 4347
+     * @see #cleanUp()
+     */
     private static final List<Integer> vaos = new ArrayList<>();
+    /**
+     * List of vbo id to clear at the end of the program
+     * <p></p>
+     *
+     * @author 4347
+     * @see #cleanUp()
+     */
     private static final List<Integer> vbos = new ArrayList<>();
+    /**
+     * List of texture id to clear at the end of the program
+     * <p></p>
+     *
+     * @author 4347
+     * @see #cleanUp()
+     */
     private static final List<Integer> textures = new ArrayList<>();
 
+    /**
+     * The new texture for all blocks
+     * <p></p>
+     *
+     * @author 4347
+     */
     public static final BlockTexture TEXTURE = new BlockTexture(loadTexture("texture.png"));
 
+    /**
+     * The types of the blocks
+     * <p></p>
+     *
+     * @author 4347
+     */
     public enum Type {
 
-        NONE("none",0f,0f),
-        DIRT("minecraft:dirt_block",1f,1f),
-        GRASS("minecraft:grass_block",1f,1f),
-        STONE("minecraft:stone",1f,1f),
-        BEDROCK("minecraft:bedrock",1f,1f);
+        /**
+         * An empty block.
+         * <h2>Unused</h2>
+         *
+         * @author 4347
+         */
+        NONE("none", 0f, 0f),
+        /**
+         * The dirt block.
+         * <p></p>
+         *
+         * @author 4347
+         * @see org.minecraft.block.blocks.Dirt
+         */
+        DIRT("minecraft:dirt_block", 1f, 1f),
+        /**
+         * The grass block.
+         * <p></p>
+         *
+         * @author 4347
+         * @see org.minecraft.block.blocks.Grass
+         */
+        GRASS("minecraft:grass_block", 1f, 1f),
+        /**
+         * The stone block.
+         * <p></p>
+         *
+         * @author 4347
+         * @see org.minecraft.block.blocks.Stone
+         */
+        STONE("minecraft:stone", 1f, 1f),
+        /**
+         * The bedrock block.
+         * <p></p>
+         *
+         * @author 4347
+         * @see org.minecraft.block.blocks.Bedrock
+         */
+        BEDROCK("minecraft:bedrock", 1f, 1f);
 
+        /**
+         * The name of the block.
+         * <p>ex) minecraft:air</p>
+         * <p></p>
+         *
+         * @author 4347
+         */
         public final String name;
+        /**
+         * The width of the block.
+         * <p></p>
+         *
+         * @author 4347
+         */
         public final float width;
+        /**
+         * The height of the block.
+         * <p></p>
+         *
+         * @author 4347
+         */
         public final float height;
 
-        Type(String name, float width,float height) {
+        Type(String name, float width, float height) {
             this.name = name;
             this.width = width;
             this.height = height;
@@ -158,31 +277,57 @@ public class Block extends AbstractBlock {
 
     /**
      * The model of this block
+     * <p></p>
+     *
+     * @author 4347
      */
     private final BlockModel model;
+
     /**
      * The texture of this block
+     * <p></p>
+     *
+     * @author 4347
      */
     private final BlockTexture texture;
+
     /**
      * The position of this block
+     * <p></p>
+     *
+     * @author 4347
      */
     private final Vector3f position;
+
     /**
      * The rotation of this block
+     * <p></p>
+     *
+     * @author 4347
      */
     private final Vector3f rotation;
 
+    /**
+     * Create a block with texture and position
+     * <p></p>
+     *
+     * @deprecated Use {@link #Block(BlockModel, Vector3f)} instead
+     * @param texture The texture of the block
+     * @param position The position of the block
+     * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
+     * @author 4347
+     */
+    @Deprecated
     public Block(@NotNull BlockTexture texture, @NotNull Vector3f position) throws IllegalArgumentException {
 
         if (position.y < 0 || position.y > 255) {
             throw new IllegalArgumentException("The y position of the block can't be lower than 0 or higher than 255");
         }
 
-        model = null;
+        this.model = null;
         this.texture = texture;
         this.position = position;
-        rotation = new Vector3f(0, 0, 0);
+        this.rotation = new Vector3f(0, 0, 0);
     }
 
     public Block(@NotNull BlockTexture texture, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {

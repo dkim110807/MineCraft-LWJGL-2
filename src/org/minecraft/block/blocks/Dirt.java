@@ -114,9 +114,9 @@ public class Dirt extends Block {
     public static final BlockModel MODEL = load(VERTICES, TCS, TEXTURE);
 
     /**
-     * Create a block with the position x,y,z with the default model (Dirt.model)
+     * Create a block with the position x,y,z with the default {@link #MODEL model}
      * <p></p>
-     * This is same as Dirt(new Vector3f(x,y,z))
+     * This is same as {@link #Dirt(Vector3f)Dirt(new Vector3f(x, y, z))}
      * <p></p>
      *
      * @param x The x position of the block
@@ -131,9 +131,9 @@ public class Dirt extends Block {
     }
 
     /**
-     * Create a block with the position with the default model (Dirt.model)
+     * Create a block with the position with the default {@link Dirt#MODEL model}
      * <p></p>
-     * This is same as Dirt(Dirt.model,position)
+     * This is same as {@link #Dirt(BlockModel,Vector3f)Dirt(Dirt.MODEL, position)}
      * <p></p>
      *
      * @param position The position of this block
@@ -146,9 +146,9 @@ public class Dirt extends Block {
     }
 
     /**
-     * Create a block with the position and rotation with the default model (Dirt.model)
+     * Create a block with the position and rotation with the default {@link Dirt#MODEL model}
      * <p></p>
-     * This is same as Dirt(Dirt.model,position,rotation)
+     * This is same as {@link #Dirt(BlockModel, Vector3f, Vector3f)Dirt(Dirt.MODEL, position, rotation)}
      * <p></p>
      *
      * @param position The position of this block
@@ -156,7 +156,7 @@ public class Dirt extends Block {
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
      * @see #Dirt(BlockModel, Vector3f, Vector3f)
-     * @deprecated No rotation for block DIRT
+     * @deprecated No rotation for block {@link Dirt <i>DIRT</i>}
      */
     @Deprecated
     public Dirt(@NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
@@ -164,7 +164,7 @@ public class Dirt extends Block {
     }
 
     /**
-     * Create a block with the position
+     * Create a block with the position and texture
      * <p></p>
      *
      * @param texture  The texture of the block
@@ -172,7 +172,7 @@ public class Dirt extends Block {
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
      * @see #Dirt(BlockModel, Vector3f)
-     * @deprecated Use Dirt(BlockModel,Vector3f) instead
+     * @deprecated Use {@link #Dirt(BlockModel, Vector3f)} instead
      */
     @Deprecated
     public Dirt(@NotNull BlockTexture texture, @NotNull Vector3f position) throws IllegalArgumentException {
@@ -180,7 +180,7 @@ public class Dirt extends Block {
     }
 
     /**
-     * Create a block with the position,rotation
+     * Create a block with the position,rotation and texture
      * <p></p>
      *
      * @param texture  The texture of the block
@@ -189,7 +189,7 @@ public class Dirt extends Block {
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
      * @see #Dirt(BlockModel, Vector3f, Vector3f)
-     * @deprecated No rotation for block DIRT
+     * @deprecated Use {@link #Dirt(BlockModel, Vector3f, Vector3f)} instead
      */
     @Deprecated
     public Dirt(@NotNull BlockTexture texture, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
@@ -199,10 +199,10 @@ public class Dirt extends Block {
     /**
      * Create a block with the position x,y,z and the custome model
      * <p></p>
-     * This is same as Dirt(model,new Vector3f(x,y,z))
+     * This is same as {@link #Dirt(BlockModel,Vector3f)Dirt(model, new Vector3f(x, y, z))}
      * <p></p>
      *
-     * @param model The model of this block. Use Dirt.model or custom model
+     * @param model The model of this block. Use Dirt.{@link Dirt#MODEL} or custom model
      * @param x     The x position of the block
      * @param y     The y position of the block
      * @param z     The z position of the block
@@ -218,7 +218,7 @@ public class Dirt extends Block {
      * Create a block with the position and model
      * <p></p>
      *
-     * @param model    The model of this block. Use Dirt.MODEL or custom model
+     * @param model    The model of this block. Use Dirt.{@link Dirt#MODEL} or custom model
      * @param position The position of this block.
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
@@ -232,13 +232,13 @@ public class Dirt extends Block {
      * Create a block with the position,rotation and model
      * <p></p>
      *
-     * @param model    The model of this block. Use Dirt.MODEL or custom model
+     * @param model    The model of this block. Use Dirt.{@link Dirt#MODEL} or custom model
      * @param position The position of this block.
      * @param rotation The rotation of this block.
      * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
      * @author 4347
      * @see #MODEL
-     * @deprecated No rotation for block DIRT
+     * @deprecated No rotation for block {@link Dirt <i>DIRT</i>}
      */
     @Deprecated
     public Dirt(@NotNull BlockModel model, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
@@ -247,11 +247,10 @@ public class Dirt extends Block {
 
     /**
      * Returns the type of this block
-     * <p>
-     * In this case it will return Block.Type.DIRT
+     * <ul><li>In this case it will return <i>{@link Block.Type#DIRT}
      * <p></p>
      *
-     * @return The type of this block. (Block.Type.DIRT)
+     * @return The type of this block. Which is <i>{@link Block.Type#DIRT}
      * @author 4347
      * @see Block#getType()
      * @see Block.Type
@@ -264,12 +263,11 @@ public class Dirt extends Block {
     }
 
     /**
-     * Returns the tcs of this block
-     * <p></p>
-     * In this case it will return the TCS
+     * Returns the texture coordinates of this block
+     * <li>In this case it will return the {@link #TCS}
      * <p></p>
      *
-     * @return The tcs of this block(DIRT).
+     * @return The texture coordinates of this block({@link org.minecraft.block.blocks.Dirt DIRT}).
      * @author 4347
      * @see Block#TCS
      * @see Dirt#TCS
@@ -291,6 +289,7 @@ public class Dirt extends Block {
     @Override
     public Map<String, Object> serialize() {
         Map<String, Object> result = new HashMap<>();
+
         result.put("model", MODEL);
         result.put("texture", TEXTURE);
         result.put("type", TYPE.name());
@@ -341,8 +340,7 @@ public class Dirt extends Block {
 
     /**
      * Returns the name of the block
-     * <p></p>
-     * Default is "minecraft:none"
+     * <li>In this case it will return {@link #NAME}
      * <p></p>
      *
      * @return The name of the block
@@ -357,8 +355,7 @@ public class Dirt extends Block {
 
     /**
      * Returns the width of this block.
-     * <p></p>
-     * In this case it will return 1f.
+     * <li>In this case it will return 1f.
      * <p></p>
      *
      * @return The width of this block which is 1f
@@ -372,8 +369,7 @@ public class Dirt extends Block {
 
     /**
      * Returns the height of this block.
-     * <p></p>
-     * In this case it will return 1f.
+     * <li>In this case it will return 1f.
      * <p></p>
      *
      * @return The height of this block which is 1f
@@ -387,8 +383,7 @@ public class Dirt extends Block {
 
     /**
      * Returns the scale of this block.
-     * <p></p>
-     * In this case it will return Vector3f(1,1,1).
+     * <li>In this case it will return Vector3f(1,1,1).
      * <p></p>
      *
      * @return The scale of this block which is Vector3f(1,1,1)
