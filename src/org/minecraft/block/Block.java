@@ -332,13 +332,19 @@ public class Block extends AbstractBlock {
      * @param texture The texture of the block
      * @param position The position of the block
      * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
+     * @throws IllegalStateException If the texture is null
+     * @throws IllegalStateException If the position is null
      * @author 4347
      */
     @Deprecated
-    public Block(@NotNull BlockTexture texture, @NotNull Vector3f position) throws IllegalArgumentException {
+    public Block(@NotNull BlockTexture texture, @NotNull Vector3f position) throws IllegalArgumentException, IllegalStateException {
 
         if (position.y < 0 || position.y > 255) {
             throw new IllegalArgumentException("The y position of the block can't be lower than 0 or higher than 255");
+        }
+
+        if (texture == null || position == null) {
+            throw new IllegalStateException();
         }
 
         this.model = null;
@@ -356,13 +362,24 @@ public class Block extends AbstractBlock {
      * @param position The position of the block
      * @param rotation The rotation of the block
      * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
+     * @throws IllegalStateException If the texture is null
+     * @throws IllegalStateException If the position is null
+     * @throws IllegalStateException If the rotation is null
      * @author 4347
      */
     @Deprecated
-    public Block(@NotNull BlockTexture texture, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
+    public Block(@NotNull BlockTexture texture,
+                 @NotNull Vector3f position,
+                 @NotNull Vector3f rotation)
+            throws IllegalArgumentException,
+            IllegalStateException{
 
         if (position.y < 0 || position.y > 255) {
             throw new IllegalArgumentException("The y position of the block can't be lower than 0 or higher than 255");
+        }
+
+        if (texture == null || position == null || rotation == null) {
+            throw new IllegalStateException();
         }
 
         model = null;
@@ -378,12 +395,18 @@ public class Block extends AbstractBlock {
      * @param model The model of this block
      * @param position The position of the block
      * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
+     * @throws IllegalStateException If model is null
+     * @throws IllegalStateException If position is null
      * @author 4347
      */
-    public Block(@NotNull BlockModel model, @NotNull Vector3f position) throws IllegalArgumentException {
+    public Block(@NotNull BlockModel model, @NotNull Vector3f position) throws IllegalArgumentException, IllegalStateException {
 
         if (position.y < 0 || position.y > 255) {
             throw new IllegalArgumentException("The y position of the block can't be lower than 0 or higher than 255");
+        }
+
+        if (model == null || position == null) {
+            throw new IllegalStateException();
         }
 
         this.model = model;
@@ -400,12 +423,23 @@ public class Block extends AbstractBlock {
      * @param position The position of the block
      * @param rotation The rotation of the block
      * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
+     * @throws IllegalStateException If the model is null
+     * @throws IllegalStateException If the position is null
+     * @throws IllegalStateException If the rotation is null
      * @author 4347
      */
-    public Block(@NotNull BlockModel model, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {
+    public Block(@NotNull BlockModel model,
+                 @NotNull Vector3f position,
+                 @NotNull Vector3f rotation)
+            throws IllegalArgumentException,
+            IllegalStateException {
 
         if (position.y < 0 || position.y > 255) {
             throw new IllegalArgumentException("The y position of the block can't be lower than 0 or higher than 255");
+        }
+
+        if (model == null || position == null || rotation == null) {
+            throw new IllegalStateException();
         }
 
         this.model = model;

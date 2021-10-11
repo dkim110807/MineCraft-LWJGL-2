@@ -9,6 +9,7 @@ import org.minecraft.block.blocks.Bedrock;
 import org.minecraft.block.blocks.Dirt;
 import org.minecraft.block.blocks.Grass;
 import org.minecraft.block.blocks.Stone;
+import org.minecraft.block.blocks.leaves.OakLeaves;
 import org.minecraft.block.blocks.logs.OakLog;
 import org.minecraft.chunks.Chunk;
 import org.minecraft.graphics.shader.Shader;
@@ -145,6 +146,7 @@ public class Main {
         new Stone(0,0,0);
         new Bedrock(0,0,0);
         new OakLog(0,0,0);
+        new OakLeaves(0,0,0);
 
         AtomicInteger totalBlocks = new AtomicInteger();
 

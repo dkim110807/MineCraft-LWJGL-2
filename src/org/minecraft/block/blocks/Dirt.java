@@ -186,7 +186,7 @@ public class Dirt extends Block {
      * @param texture  The texture of the block
      * @param position The position of the block
      * @param rotation The rotation of the block
-     * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
+     * @throws IllegalArgumentException If the y value of the position is lower than 0 or greater than 255
      * @author 4347
      * @see #Dirt(BlockModel, Vector3f, Vector3f)
      * @deprecated Use {@link #Dirt(BlockModel, Vector3f, Vector3f)} instead
