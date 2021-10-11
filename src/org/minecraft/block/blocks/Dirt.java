@@ -122,7 +122,7 @@ public class Dirt extends Block {
      * @param x The x position of the block
      * @param y The y position of the block
      * @param z The z position of the block
-     * @throws IllegalArgumentException If the y value of the position is smaller than 0 or greater than 255
+     * @throws IllegalArgumentException If the y value of the position is lower than 0 or greater than 255
      * @author 4347
      * @see #Dirt(Vector3f)
      */

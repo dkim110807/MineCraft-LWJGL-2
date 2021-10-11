@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="160c6e0d-d8d1-45e9-862b-c649a4bfabf9" name="Default Changelist" comment="MineCraft">
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/block/blocks/leaves/OakLeaves.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/blocks/Dirt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/blocks/Dirt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/blocks/leaves/OakLeaves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/blocks/leaves/OakLeaves.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +63,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
   </component>
   <component name="RunManager">
     <configuration name="Run" type="Application" factoryName="Application">
@@ -153,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633866587791</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="MineCraft">
+      <created>1633873405912</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1633873405912</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
