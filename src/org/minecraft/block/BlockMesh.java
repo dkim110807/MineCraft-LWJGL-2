@@ -104,6 +104,7 @@ public class BlockMesh {
     private final List<Vertex> vertices = new ArrayList<>();
 
     public BlockMesh(Chunk chunk) {
+        this.chunk = chunk;
         blocks = chunk.blocks;
         origin = chunk.origin;
 
@@ -112,6 +113,7 @@ public class BlockMesh {
     }
 
     public void update(Chunk chunk) {
+        this.chunk = chunk;
         blocks = chunk.blocks;
         origin = chunk.origin;
 
@@ -123,45 +125,41 @@ public class BlockMesh {
 
         for (Block block : blocks) {
 
-            /*boolean px = (chunk.getBlockAt(block.getPosition().x + 1, block.getPosition().y, block.getPosition().z) == null);
-            boolean nx = (chunk.getBlockAt(block.getPosition().x - 1, block.getPosition().y, block.getPosition().z) == null);
-            boolean py = (chunk.getBlockAt(block.getPosition().x, block.getPosition().y + 1, block.getPosition().z) == null);
-            boolean ny = chunk.getBlockAt(block.getPosition().x, block.getPosition().y - 1, block.getPosition().z) == null;
-            boolean pz = chunk.getBlockAt(block.getPosition().x, block.getPosition().y, block.getPosition().z + 1) == null;
-            boolean nz = chunk.getBlockAt(block.getPosition().x, block.getPosition().y, block.getPosition().z - 1) == null;
-*/
-            boolean px = false;
-            boolean nx = false;
-            boolean py = false;
-            boolean ny = false;
-            boolean pz = false;
-            boolean nz = false;
+            boolean px = chunk.isBlockIn(block.getPosition().x + 1f, block.getPosition().y, block.getPosition().z);
+            boolean nx = chunk.isBlockIn(block.getPosition().x - 1f, block.getPosition().y, block.getPosition().z);
+            boolean py = chunk.isBlockIn(block.getPosition().x, block.getPosition().y + 1f, block.getPosition().z);
+            boolean ny = chunk.isBlockIn(block.getPosition().x, block.getPosition().y - 1f, block.getPosition().z);
+            boolean pz = chunk.isBlockIn(block.getPosition().x, block.getPosition().y, block.getPosition().z + 1f);
+            boolean nz = chunk.isBlockIn(block.getPosition().x, block.getPosition().y, block.getPosition().z - 1f);
 
-            /*if (chunk.getBlockAt(block.getPosition().x + 1, block.getPosition().y, block.getPosition().z) != null) {
-                px = true;
-            }*/
+//            boolean px = false;
+//            boolean nx = false;
+//            boolean py = false;
+//            boolean ny = false;
+//            boolean pz = false;
+//            boolean nz = false;
 
-            for (Block other : blocks) {
-
-                if (((block.getPosition().x + 1) == (other.getPosition().x)) && (block.getPosition().y == other.getPosition().y) && (block.getPosition().z == other.getPosition().z))
-                    px = true;
-
-                if (((block.getPosition().x - 1) == (other.getPosition().x)) && (block.getPosition().y == other.getPosition().y) && (block.getPosition().z == other.getPosition().z))
-                    nx = true;
-
-                if ((block.getPosition().x == other.getPosition().x) && (block.getPosition().y + 1 == other.getPosition().y) && (block.getPosition().z == other.getPosition().z))
-                    py = true;
-
-                if ((block.getPosition().x == other.getPosition().x) && (block.getPosition().y - 1 == other.getPosition().y) && (block.getPosition().z == other.getPosition().z))
-                    ny = true;
-
-                if ((block.getPosition().x == other.getPosition().x) && (block.getPosition().y == other.getPosition().y) && (block.getPosition().z + 1 == other.getPosition().z))
-                    pz = true;
-
-                if ((block.getPosition().x == other.getPosition().x) && (block.getPosition().y == other.getPosition().y) && (block.getPosition().z - 1 == other.getPosition().z))
-                    nz = true;
-
-            }
+//            for (Block other : blocks) {
+//
+//                if (((block.getPosition().x + 1) == (other.getPosition().x)) && (block.getPosition().y == other.getPosition().y) && (block.getPosition().z == other.getPosition().z))
+//                    px = true;
+//
+//                if (((block.getPosition().x - 1) == (other.getPosition().x)) && (block.getPosition().y == other.getPosition().y) && (block.getPosition().z == other.getPosition().z))
+//                    nx = true;
+//
+//                if ((block.getPosition().x == other.getPosition().x) && (block.getPosition().y + 1 == other.getPosition().y) && (block.getPosition().z == other.getPosition().z))
+//                    py = true;
+//
+//                if ((block.getPosition().x == other.getPosition().x) && (block.getPosition().y - 1 == other.getPosition().y) && (block.getPosition().z == other.getPosition().z))
+//                    ny = true;
+//
+//                if ((block.getPosition().x == other.getPosition().x) && (block.getPosition().y == other.getPosition().y) && (block.getPosition().z + 1 == other.getPosition().z))
+//                    pz = true;
+//
+//                if ((block.getPosition().x == other.getPosition().x) && (block.getPosition().y == other.getPosition().y) && (block.getPosition().z - 1 == other.getPosition().z))
+//                    nz = true;
+//
+//            }
 
             if (!px) {
                 for (int i = 0; i < 6; i++) {
