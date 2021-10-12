@@ -5,7 +5,6 @@ import org.lwjgl.util.vector.Vector3f;
 import org.minecraft.block.Block;
 import org.minecraft.block.BlockModel;
 import org.minecraft.block.BlockTexture;
-import org.minecraft.block.blocks.Dirt;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -124,6 +123,9 @@ public class OakLeaves extends Block {
      * <li>This is same as {@link #OakLeaves(Vector3f, Vector3f)OakLeaves(new Vector3f(x, y, z), new Vector3f(0, 0, 0))}
      * <li>This is same as {@link #OakLeaves(BlockModel, float, float, float)OakLeaves(OakLeaves.MODEL, x, y, z)}
      * <li>This is same as {@link #OakLeaves(BlockModel, Vector3f)OakLeaves(OakLeaves.MODEL, new Vector3f(x, y, z))}
+     * <li>This is same as {@link #OakLeaves(BlockModel, float, float, float, float, float, float)OakLeaves(OakLeaves.MODEL, x, y, z, 0, 0, 0)}
+     * <li>This is same as {@link #OakLeaves(BlockModel, float, float, float, Vector3f)OakLeaves(OakLeaves.MODEL, x, y, z, new Vector3f(0, 0, 0))}
+     * <li>This is same as {@link #OakLeaves(BlockModel, Vector3f, float, float, float)OakLeaves(BlockModel.MODEL, new Vector3f(x, y, z), 0, 0, 0)}
      * <li>This is same as {@link #OakLeaves(BlockModel, Vector3f)OakLeaves(OakLeaves.MODEL, new Vector3f(x, y, z), new Vector3f(0, 0, 0))}
      * <p></p>
      *
@@ -139,6 +141,9 @@ public class OakLeaves extends Block {
      * @see #OakLeaves(Vector3f, Vector3f)
      * @see #OakLeaves(BlockModel, float, float, float)
      * @see #OakLeaves(BlockModel, Vector3f)
+     * @see #OakLeaves(BlockModel, float, float, float, float, float, float)
+     * @see #OakLeaves(BlockModel, float, float, float, Vector3f)
+     * @see #OakLeaves(BlockModel, Vector3f, float, float, float)
      * @see #OakLeaves(BlockModel, Vector3f, Vector3f)
      * @since 1.0
      */
@@ -149,9 +154,15 @@ public class OakLeaves extends Block {
     /**
      * Create a block with the position with the default {@link #MODEL model}
      * <li>This is same as {@link #OakLeaves(float, float, float)OakLeaves(position.x, position.y, position.z)}
+     * <li>This is same as {@link #OakLeaves(float, float, float, float, float, float)OakLeaves(position.x, position.y, position.z, 0, 0, 0)}
+     * <li>This is same as {@link #OakLeaves(float, float, float, Vector3f)OakLeaves(position.x, position.y, position.z, new Vector3f(0, 0, 0))}
+     * <li>This is same as {@link #OakLeaves(Vector3f, float, float, float)OakLeaves(position, 0, 0, 0)}
      * <li>This is same as {@link #OakLeaves(Vector3f, Vector3f)OakLeaves(position, new Vector3f(0, 0, 0))}
      * <li>This is same as {@link #OakLeaves(BlockModel, float, float, float)OakLeaves(OakLeaves.MODEL, position.x, position.y, position.z)}
      * <li>This is same as {@link #OakLeaves(BlockModel, Vector3f)OakLeaves(OakLeaves.MODEL, position)}
+     * <li>This is same as {@link #OakLeaves(BlockModel, float, float, float, float, float, float)OakLeaves(OakLeaves.MODEL, position.x, position.y, position.z, 0, 0, 0)}
+     * <li>This is same as {@link #OakLeaves(BlockModel, float, float, float, Vector3f)OakLeaves(OakLeaves.MODEL, position.x, position.y, position.z, new Vector3f(0, 0, 0))}
+     * <li>This is same as {@link #OakLeaves(BlockModel, Vector3f, float, float, float)OakLeaves(OakLeaves.MODEL, position, 0, 0, 0)}
      * <li>This is same as {@link #OakLeaves(BlockModel, Vector3f, Vector3f)OakLeaves(OakLeaves.MODEL, position, new Vector3f(0, 0, 0))}
      * <p></p>
      *
@@ -160,9 +171,15 @@ public class OakLeaves extends Block {
      * @throws IllegalStateException    If the position is null
      * @author 4347
      * @see #OakLeaves(float, float, float)
+     * @see #OakLeaves(float, float, float, float, float, float)
+     * @see #OakLeaves(float, float, float, Vector3f)
+     * @see #OakLeaves(Vector3f, float, float, float)
      * @see #OakLeaves(Vector3f, Vector3f)
      * @see #OakLeaves(BlockModel, float, float, float)
      * @see #OakLeaves(BlockModel, Vector3f)
+     * @see #OakLeaves(BlockModel, float, float, float, float, float, float)
+     * @see #OakLeaves(BlockModel, float, float, float, Vector3f)
+     * @see #OakLeaves(BlockModel, Vector3f, float, float, float)
      * @see #OakLeaves(BlockModel, Vector3f, Vector3f)
      */
     public OakLeaves(@NotNull Vector3f position) throws IllegalArgumentException, IllegalStateException {
@@ -171,7 +188,13 @@ public class OakLeaves extends Block {
 
     /**
      * Create a block with the position x,y,z and the rotation rotX,rotY,rotZ and the default {@link #MODEL model}
-     * <li>
+     * <li>This is same as {@link #OakLeaves(float, float, float, Vector3f)OakLeaves(x, y, z, new Vector3f(rotX, rotY, rotZ))}
+     * <li>This is same as {@link #OakLeaves(Vector3f, float, float, float)OakLeaves(new Vector3f(x, y, z), rotX, rotY, rotZ)}
+     * <li>This is same as {@link #OakLeaves(Vector3f, Vector3f)OakLeaves(new Vector3f(x, y, z), new Vector3f(rotX, rotY, rotZ))}
+     * <li>This is same as {@link #OakLeaves(BlockModel, float, float, float, float, float, float)OakLeaves(OakLeaves.MODEL, x, y, z, rotX, rotY, rotZ)}
+     * <li>This is same as {@link #OakLeaves(BlockModel, float, float, float, Vector3f)OakLeaves(OakLeaves.MODEL, x, y, z, new Vector3f(rotX, rotY, rotZ))}
+     * <li>This is same as {@link #OakLeaves(BlockModel, Vector3f, float, float, float)OakLeaves(OakLeaves.MODEL, new Vector3f(x, y, z), rotX, rotY, rotZ)}
+     * <li>This is same as {@link #OakLeaves(BlockModel, Vector3f, Vector3f)OakLeaves(OakLeaves.MODEL, new Vector3f(x, y, z), new Vector3f(rotX, rotY, rotZ))}
      *
      * @param x    The x position of the block
      * @param y    The y position of the block
@@ -180,6 +203,9 @@ public class OakLeaves extends Block {
      * @param rotY The y rotation of the block
      * @param rotZ The z rotation of the block
      * @throws IllegalArgumentException If the y value of the position is lower than 0 or greater than 255
+     * @see #OakLeaves(float, float, float, Vector3f)
+     * @see #OakLeaves(Vector3f, float, float, float)
+     * @see #OakLeaves(Vector3f, Vector3f) 
      * @author 4347
      */
     public OakLeaves(float x, float y, float z, float rotX, float rotY, float rotZ) throws IllegalArgumentException, IllegalStateException {
@@ -267,6 +293,14 @@ public class OakLeaves extends Block {
 
     public OakLeaves(@NotNull BlockModel model, float x, float y, float z, float rotX, float rotY, float rotZ) throws IllegalArgumentException, IllegalStateException {
         super(model, new Vector3f(x, y, z), new Vector3f(rotX, rotY, rotZ));
+    }
+
+    public OakLeaves(@NotNull BlockModel model, float x, float y, float z, @NotNull Vector3f rotation) throws IllegalArgumentException, IllegalStateException {
+        super(model, new Vector3f(x, y, z), rotation);
+    }
+
+    public OakLeaves(@NotNull BlockModel model, @NotNull Vector3f position, float rotX, float rotY, float rotZ) throws IllegalArgumentException, IllegalStateException {
+        super(model, position, new Vector3f(rotX, rotY, rotZ));
     }
 
     public OakLeaves(@NotNull BlockModel model, @NotNull Vector3f position, @NotNull Vector3f rotation) throws IllegalArgumentException {

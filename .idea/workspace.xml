@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="160c6e0d-d8d1-45e9-862b-c649a4bfabf9" name="Default Changelist" comment="MineCraft">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/blocks/Dirt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/blocks/Dirt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/blocks/leaves/OakLeaves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/blocks/leaves/OakLeaves.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +47,6 @@
   <component name="ProjectId" id="1yzZYTj9JLmfkQfBJdtVkLOhhC4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -169,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633917336414</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="MineCraft">
+      <created>1633939601350</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1633939601350</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
