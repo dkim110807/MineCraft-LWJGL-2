@@ -2,7 +2,7 @@ package org.minecraft.chunks;
 
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
-import org.minecraft.block.Block;
+import org.minecraft.old.block.Block;
 import org.minecraft.graphics.Vertex;
 
 import java.util.ArrayList;

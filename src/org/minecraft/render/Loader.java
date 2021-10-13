@@ -5,8 +5,8 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
-import org.minecraft.block.BlockModel;
-import org.minecraft.block.BlockTexture;
+import org.minecraft.old.block.BlockModel;
+import org.minecraft.old.block.BlockTexture;
 import org.minecraft.graphics.TextureLoader;
 import org.minecraft.models.RawModel;
 

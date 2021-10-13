@@ -6,82 +6,64 @@ import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 import org.lwjgl.util.vector.Vector3f;
-import org.minecraft.block.blocks.logs.OakLog;
 import org.minecraft.graphics.TextureLoader;
 import org.minecraft.utils.buffer.BufferUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.Serializable;
+import java.util.*;
 
-@SuppressWarnings("all")
-public class Block extends AbstractBlock {
+public class Block extends BlockRender implements BlockI, Serializable {
 
     /**
-     * The vertices for 1,1,1 block
-     * <p></p>
-     *
-     * @author 4347
+     * The serial version
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * The vertices for default 1, 1, 1 block
      */
     protected static final float[] VERTICES = new float[]{
             //Positive X
-            0.5f, 0.5f, -0.5f,
+            -0.5f, 0.5f, -0.5f,
+            -0.5f, -0.5f, -0.5f,
             0.5f, -0.5f, -0.5f,
-            0.5f, -0.5f, 0.5f,
-            0.5f, -0.5f, 0.5f,
-            0.5f, 0.5f, 0.5f,
             0.5f, 0.5f, -0.5f,
 
             //Negative X
-            -0.5f, 0.5f, -0.5f,
-            -0.5f, -0.5f, -0.5f,
-            -0.5f, -0.5f, 0.5f,
-            -0.5f, -0.5f, 0.5f,
             -0.5f, 0.5f, 0.5f,
-            -0.5f, 0.5f, -0.5f,
+            -0.5f, -0.5f, 0.5f,
+            0.5f, -0.5f, 0.5f,
+            0.5f, 0.5f, 0.5f,
 
             //Positive Y
-            -0.5f, 0.5f, 0.5f,
-            -0.5f, 0.5f, -0.5f,
             0.5f, 0.5f, -0.5f,
-            0.5f, 0.5f, -0.5f,
-            0.5f, 0.5f, 0.5f,
-            -0.5f, 0.5f, 0.5f,
-
-            //Negative Y
-            -0.5f, -0.5f, 0.5f,
-            -0.5f, -0.5f, -0.5f,
-            0.5f, -0.5f, -0.5f,
             0.5f, -0.5f, -0.5f,
             0.5f, -0.5f, 0.5f,
+            0.5f, 0.5f, 0.5f,
+
+            //Negative Y
+            -0.5f, 0.5f, -0.5f,
+            -0.5f, -0.5f, -0.5f,
+            -0.5f, -0.5f, 0.5f,
+            -0.5f, 0.5f, 0.5f,
 
             //Positive Z
             -0.5f, 0.5f, 0.5f,
-            -0.5f, -0.5f, 0.5f,
-            0.5f, -0.5f, 0.5f,
-            0.5f, -0.5f, 0.5f,
+            -0.5f, 0.5f, -0.5f,
+            0.5f, 0.5f, -0.5f,
             0.5f, 0.5f, 0.5f,
-            -0.5f, 0.5f, 0.5f,
 
             //Negative Z
-            -0.5f, 0.5f, -0.5f,
+            -0.5f, -0.5f, 0.5f,
             -0.5f, -0.5f, -0.5f,
             0.5f, -0.5f, -0.5f,
-            0.5f, -0.5f, -0.5f,
-            0.5f, 0.5f, -0.5f,
-            -0.5f, 0.5f, -0.5f
+            0.5f, -0.5f, 0.5f
     };
 
     /**
-     * Indices for default vertices
-     * <p></p>
-     *
-     * @author 4347
-     * @deprecated Old method (Can't mesh with indices)
+     * The default indices
      */
-    @Deprecated
-    protected static final int[] INDICES = new int[]{
+    protected static int[] INDICES = new int[]{
             //Positive X
             0, 1, 3,
             3, 1, 2,
@@ -108,351 +90,147 @@ public class Block extends AbstractBlock {
     };
 
     /**
-     * The default TCS for blocks
-     * <p></p>
-     *
-     * @author 4347
-     * @deprecated Old method
+     * The default texture coordinates
      */
-    @Deprecated
     protected static final float[] TCS = new float[]{
             //Positive X
-            0, 0,
-            0, 1,
-            1, 1,
-            1, 1,
-            1, 0,
-            0, 0,
+            0.0f, 0.0f,
+            0.0f, 1.0f,
+            1.0f, 1.0f,
+            1.0f, 0.0f,
 
             //Negative X
-            0, 0,
-            0, 1,
-            1, 1,
-            1, 1,
-            1, 0,
-            0, 0,
+            0.0f, 0.0f,
+            0.0f, 1.0f,
+            1.0f, 1.0f,
+            1.0f, 0.0f,
 
             //Positive Y
-            0, 0,
-            0, 1,
-            1, 1,
-            1, 1,
-            1, 0,
-            0, 0,
+            0.0f, 0.0f,
+            0.0f, 1.0f,
+            1.0f, 1.0f,
+            1.0f, 0.0f,
 
             //Negative Y
-            0, 0,
-            0, 1,
-            1, 1,
-            1, 1,
-            1, 0,
-            0, 0,
+            0.0f, 0.0f,
+            0.0f, 1.0f,
+            1.0f, 1.0f,
+            1.0f, 0.0f,
 
             //Positive Z
-            0, 0,
-            0, 1,
-            1, 1,
-            1, 1,
-            1, 0,
-            0, 0,
+            0.0f, 0.0f,
+            0.0f, 1.0f,
+            1.0f, 1.0f,
+            1.0f, 0.0f,
 
             //Negative Z
-            0, 0,
-            0, 1,
-            1, 1,
-            1, 1,
-            1, 0,
-            0, 0
+            0.0f, 0.0f,
+            0.0f, 1.0f,
+            1.0f, 1.0f,
+            1.0f, 0.0f
     };
 
     /**
-     * List of vao id to clear at the end of the program
-     * <p></p>
+     * The vaos to clear at the end of program
      *
-     * @author 4347
      * @see #cleanUp()
      */
     private static final List<Integer> vaos = new ArrayList<>();
+
     /**
-     * List of vbo id to clear at the end of the program
-     * <p></p>
+     * The vbos to clear at the end of program
      *
-     * @author 4347
      * @see #cleanUp()
      */
     private static final List<Integer> vbos = new ArrayList<>();
+
     /**
-     * List of texture id to clear at the end of the program
-     * <p></p>
+     * The textures to clear at the end of program
      *
-     * @author 4347
      * @see #cleanUp()
      */
     private static final List<Integer> textures = new ArrayList<>();
 
-    /**
-     * The new texture for all blocks
-     * <p></p>
-     *
-     * @author 4347
-     */
-    public static final BlockTexture TEXTURE = new BlockTexture(loadTexture("texture.png"));
-
-    /**
-     * The types of the blocks
-     * <p></p>
-     *
-     * @author 4347
-     */
-    public enum Type {
-
-        /**
-         * An empty block.
-         * <h2>Unused</h2>
-         *
-         * @author 4347
-         */
-        NONE("none", 0f, 0f),
-        /**
-         * The dirt block.
-         * <p></p>
-         *
-         * @author 4347
-         * @see org.minecraft.block.blocks.Dirt
-         */
-        DIRT("minecraft:dirt_block", 1f, 1f),
-        /**
-         * The grass block.
-         * <p></p>
-         *
-         * @author 4347
-         * @see org.minecraft.block.blocks.Grass
-         */
-        GRASS("minecraft:grass_block", 1f, 1f),
-        /**
-         * The stone block.
-         * <p></p>
-         *
-         * @author 4347
-         * @see org.minecraft.block.blocks.Stone
-         */
-        STONE("minecraft:stone", 1f, 1f),
-        /**
-         * The bedrock block.
-         * <p></p>
-         *
-         * @author 4347
-         * @see org.minecraft.block.blocks.Bedrock
-         */
-        BEDROCK("minecraft:bedrock", 1f, 1f),
-        /**
-         * The oak log.
-         * <p></p>
-         *
-         * @see OakLog
-         * @author 4347
-         */
-        OAK_LOG("minecraft:oak_log",1f,1f),
-        /**
-         * The oak leaves.
-         * <p></p>
-         *
-         * @see org.minecraft.block.blocks.leaves.OakLeaves
-         * @author 4347
-         */
-        OAK_LEAVES("minecraft:oak_leaves",1f,1f);
-
-        /**
-         * The name of the block.
-         * <p>ex) minecraft:air</p>
-         * <p></p>
-         *
-         * @author 4347
-         */
-        public final String name;
-        /**
-         * The width of the block.
-         * <p></p>
-         *
-         * @author 4347
-         */
-        public final float width;
-        /**
-         * The height of the block.
-         * <p></p>
-         *
-         * @author 4347
-         */
-        public final float height;
-
-        Type(String name, float width, float height) {
-            this.name = name;
-            this.width = width;
-            this.height = height;
-        }
-    }
 
     /**
      * The model of this block
-     * <p></p>
-     *
-     * @author 4347
      */
+    @NotNull
     private final BlockModel model;
 
     /**
-     * The texture of this block
-     * <p></p>
-     *
-     * @author 4347
-     */
-    private final BlockTexture texture;
-
-    /**
      * The position of this block
-     * <p></p>
-     *
-     * @author 4347
      */
+    @NotNull
     private final Vector3f position;
 
     /**
      * The rotation of this block
-     * <p></p>
-     *
-     * @author 4347
      */
+    @NotNull
     private final Vector3f rotation;
 
     /**
-     * Create a block with texture and position
-     * <p></p>
+     * Creates block with texture with position
+     * <li>For the vertices it will use default vertices which is {@link #VERTICES}
+     * <li>For the indices it will use the default indices which is {@link #INDICES}
+     * <li>For the texture coordinates it will use the default tcs which is {@link #TCS}
      *
-     * @deprecated Use {@link #Block(BlockModel, Vector3f)} instead
-     * @param texture The texture of the block
+     * @param texture  The texture of this block
      * @param position The position of the block
-     * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
-     * @throws IllegalStateException If the texture is null
-     * @throws IllegalStateException If the position is null
      * @author 4347
      */
-    @Deprecated
-    public Block(@NotNull BlockTexture texture, @NotNull Vector3f position) throws IllegalArgumentException, IllegalStateException {
-
-        if (position.y < 0 || position.y > 255) {
-            throw new IllegalArgumentException("The y position of the block can't be lower than 0 or higher than 255");
-        }
-
-        if (texture == null || position == null) {
-            throw new IllegalStateException();
-        }
-
-        this.model = null;
-        this.texture = texture;
+    public Block(@NotNull BlockTexture texture, @NotNull Vector3f position) {
+        this.model = loadModel(VERTICES, INDICES, TCS, texture);
         this.position = position;
         this.rotation = new Vector3f(0, 0, 0);
     }
 
     /**
-     * Create a block with position, rotation and texture
-     * <p></p>
+     * Creates block with texture with position and rotation
+     * <li>For the vertices it will use default vertices which is {@link #VERTICES}
+     * <li>For the indices it will use the default indices which is {@link #INDICES}
+     * <li>For the texture coordinates it will use the default tcs which is {@link #TCS}
      *
-     * @deprecated Use {@link #Block(BlockModel, Vector3f, Vector3f)} instead
-     * @param texture The texture of the block
+     * @param texture  The texture of this block
      * @param position The position of the block
      * @param rotation The rotation of the block
-     * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
-     * @throws IllegalStateException If the texture is null
-     * @throws IllegalStateException If the position is null
-     * @throws IllegalStateException If the rotation is null
      * @author 4347
      */
-    @Deprecated
-    public Block(@NotNull BlockTexture texture,
-                 @NotNull Vector3f position,
-                 @NotNull Vector3f rotation)
-            throws IllegalArgumentException,
-            IllegalStateException{
-
-        if (position.y < 0 || position.y > 255) {
-            throw new IllegalArgumentException("The y position of the block can't be lower than 0 or higher than 255");
-        }
-
-        if (texture == null || position == null || rotation == null) {
-            throw new IllegalStateException();
-        }
-
-        model = null;
-        this.texture = texture;
+    public Block(@NotNull BlockTexture texture, @NotNull Vector3f position, @NotNull Vector3f rotation) {
+        this.model = loadModel(VERTICES, INDICES, TCS, texture);
         this.position = position;
         this.rotation = rotation;
     }
 
     /**
-     * Create a block with position and model
-     * <p></p>
+     * Creates block with model with position
      *
-     * @param model The model of this block
+     * @param model    The model of this block
      * @param position The position of the block
-     * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
-     * @throws IllegalStateException If model is null
-     * @throws IllegalStateException If position is null
      * @author 4347
      */
-    public Block(@NotNull BlockModel model, @NotNull Vector3f position) throws IllegalArgumentException, IllegalStateException {
-
-        if (position.y < 0 || position.y > 255) {
-            throw new IllegalArgumentException("The y position of the block can't be lower than 0 or higher than 255");
-        }
-
-        if (model == null || position == null) {
-            throw new IllegalStateException();
-        }
-
+    public Block(@NotNull BlockModel model, @NotNull Vector3f position) {
         this.model = model;
-        this.texture = model.getTexture();
         this.position = position;
         this.rotation = new Vector3f(0, 0, 0);
     }
 
     /**
-     * Create a block with position, rotation and model
-     * <p></p>
+     * Creates block with model with position and rotation
      *
-     * @param model The model of this block
-     * @param position The position of the block
-     * @param rotation The rotation of the block
-     * @throws IllegalArgumentException If the y position of the block is lower than 0 or greater than 255
-     * @throws IllegalStateException If the model is null
-     * @throws IllegalStateException If the position is null
-     * @throws IllegalStateException If the rotation is null
-     * @author 4347
+     * @param model    The model of this block
+     * @param position The position of this block
+     * @param rotation The rotation of this block
      */
-    public Block(@NotNull BlockModel model,
-                 @NotNull Vector3f position,
-                 @NotNull Vector3f rotation)
-            throws IllegalArgumentException,
-            IllegalStateException {
-
-        if (position.y < 0 || position.y > 255) {
-            throw new IllegalArgumentException("The y position of the block can't be lower than 0 or higher than 255");
-        }
-
-        if (model == null || position == null || rotation == null) {
-            throw new IllegalStateException();
-        }
-
+    public Block(@NotNull BlockModel model, @NotNull Vector3f position, @NotNull Vector3f rotation) {
         this.model = model;
-        this.texture = model.getTexture();
         this.position = position;
         this.rotation = rotation;
     }
 
     /**
      * Returns the name of the block
-     * <p></p>
-     * Default is <b>"minecraft:none"
-     * <p></p>
      *
      * @return The name of the block
      * @author 4347
@@ -460,13 +238,12 @@ public class Block extends AbstractBlock {
     @NotNull
     @Override
     public String getName() {
-        return "minecraft:none";
+        return "empty";
     }
 
     /**
      * Returns the width of the block
-     * <p></p>
-     * Default is to 1f
+     * <li>Normally it will return <i>1f</i>
      *
      * @return The width of the block
      * @author 4347
@@ -478,8 +255,6 @@ public class Block extends AbstractBlock {
 
     /**
      * Returns the height of the block
-     * <p></p>
-     * Default is to 1f
      *
      * @return The height of the block
      * @author 4347
@@ -490,11 +265,10 @@ public class Block extends AbstractBlock {
     }
 
     /**
-     * Returns the scale of this block
-     * <p></p>
-     * It will usually returns Vector3f(1,1,1)
+     * Returns the scale of the block
+     * <li>Normally it will return <i>Vector3f(1, 1, 1)</i>
      *
-     * @return The scale of this block
+     * @return The scale of the block
      * @author 4347
      */
     @NotNull
@@ -505,60 +279,46 @@ public class Block extends AbstractBlock {
 
     /**
      * Add this block to the render queue
+     * <li>It will return <b>true</b> if success <b>false</b> if fail
      *
+     * @return <b>true</b> if success <b>false</b> if other
      * @author 4347
-     * @see BlockRender#addBlock(Block)
-     * @see AbstractBlock#add()
      */
     @Override
-    public void add() {
+    public boolean add() {
         addBlock(this);
+
+        return true;
+    }
+
+    /**
+     * Returns the type of this block
+     *
+     * @return The type of this block
+     * @author 4347
+     */
+    @NotNull
+    @Override
+    public Type getType() {
+        return Type.AIR;
     }
 
     /**
      * Returns the model of this block
-     * <p></p>
-     * It may return null (Deprecated method)
      *
      * @return The model of this block
      * @author 4347
      */
+    @NotNull
     @Override
     public BlockModel getModel() {
         return model;
     }
 
     /**
-     * Returns the texture id of the texture
-     * <p></p>
-     * It is same as getTexture().getTextureID()
+     * Returns the position of this block
      *
-     * @return The texture id of the block texture
-     * @author 4347
-     * @see Block#getTexture()
-     */
-    public final int getTextureID() {
-        return texture.getTextureID();
-    }
-
-    /**
-     * Returns the texture of the block
-     *
-     * @return The texture of the block
-     * @author 4347
-     * @see BlockTexture
-     */
-    @NotNull
-    public final BlockTexture getTexture() {
-        return texture;
-    }
-
-    /**
-     * Returns the position of the block
-     * <p>
-     * The y position of the block is > 0 and < 255
-     *
-     * @return The position of the block
+     * @return The position of this block
      * @author 4347
      */
     @NotNull
@@ -567,68 +327,14 @@ public class Block extends AbstractBlock {
     }
 
     /**
-     * Returns the rotation of the block
-     * <p>
-     * If the block has no rotation it will return Vector3f(0,0,0)
+     * Returns the rotation of this block
      *
-     * @return The rotation of the block
+     * @return The rotation of this block
      * @author 4347
-     */
-    public final Vector3f getRotation() {
-        return rotation;
-    }
-
-    /**
-     * Returns the type of the block
-     * <p>
-     * </p>
-     * Default is to BlockType.NONE
-     *
-     * @return The type of the block
-     * @author 4347
-     * @see AbstractBlock#getType()
      */
     @NotNull
-    @Override
-    public Block.Type getType() {
-        return Block.Type.NONE;
-    }
-
-    /**
-     * Returns the tcs of the block
-     * <p></p>
-     * Default is an empty array
-     *
-     * @return The tcs of the block
-     * @author 4347
-     */
-    public float[] getTCS() {
-        return new float[0];
-    }
-
-    /**
-     * Serialize the block
-     * <p></p>
-     * Default is empty map
-     *
-     * @return the map of data of the block
-     * @author 4347
-     */
-    public Map<String, Object> serialize() {
-        return new HashMap<>();
-    }
-
-    /**
-     * Return the data of this block to String
-     * <p></p>
-     * Default is to "none"
-     *
-     * @return The data of this block to String
-     * @author 4347
-     */
-    @Override
-    public String toString() {
-        return "none";
+    public final Vector3f getRotation() {
+        return rotation;
     }
 
     /**
@@ -643,11 +349,17 @@ public class Block extends AbstractBlock {
      * @see BlockModel
      * @see BlockTexture
      */
-    protected static BlockModel load(float[] vertices, int[] indices, float[] tcs, BlockTexture texture) {
+    @NotNull
+    @SuppressWarnings("all")
+    protected static BlockModel loadModel(@NotNull float[] vertices,
+                                          @NotNull int[] indices,
+                                          @NotNull float[] tcs,
+                                          @NotNull BlockTexture texture) {
+
         int vao = createVAO();
 
-        storeDataInAttributeList(vertices, 0, 3);                                   //0 VBO => VERTICES
-        storeDataInAttributeList(tcs, 1, 2);                                        //1 VBO => TCS
+        storeDataInAttributeList(vertices, 0, 3);
+        storeDataInAttributeList(tcs, 1, 2);
         bindIndicesBuffer(indices);
 
         GL30.glBindVertexArray(0);
@@ -656,54 +368,30 @@ public class Block extends AbstractBlock {
     }
 
     /**
-     * Load the vertices,tcs,texture to BlockModel
-     * <p></p>
-     *
-     * @param vertices The vertices to load
-     * @param tcs      The texture coordinates
-     * @param texture  The texture
-     * @return The model with the vertices,tcs,texture
-     * @author 4347
-     * @see BlockModel
-     * @see BlockTexture
-     */
-    protected static BlockModel load(float[] vertices, float[] tcs, BlockTexture texture) {
-
-        int vao = createVAO();
-
-        storeDataInAttributeList(vertices, 0, 3);
-        storeDataInAttributeList(tcs, 1, 2);
-
-        GL30.glBindVertexArray(0);
-
-        return new BlockModel(vao, vertices.length, texture);
-    }
-
-    /**
      * Load the texture to the vbos
-     * <p></p>
+     * <li>The path is only the path in the {@link res res} folder
      *
      * @param path The path of the file
      * @return The texture id of the loaded texture
      * @author 4347
      */
-    protected static int loadTexture(String path) {
-
+    protected static int loadTexture(@NotNull String path) {
         try {
-            int texture = TextureLoader.getTexture("../../../res/" + path);
+            int texture = TextureLoader.getTexture(path);
+
             textures.add(texture);
 
             return texture;
-
         } catch (Exception e) {
             e.printStackTrace();
+
             return -1;
         }
     }
 
     /**
      * Creates the vao and adds to vaos
-     * <p></p>
+     * <li>The vaos needs to be cleared at the end of program
      *
      * @return The vao id
      * @author 4347
@@ -719,10 +407,10 @@ public class Block extends AbstractBlock {
 
     /**
      * Store data in attribute list
-     * <p></p>
+     * <li>Adds to {@link #vbos vbo list} and clears at the end of program
      *
-     * @param data The data to store
-     * @param attribute The attribute number to store
+     * @param data       The data to store
+     * @param attribute  The attribute number to store
      * @param dimensions The dimensions of the data
      * @author 4347
      */
@@ -730,15 +418,17 @@ public class Block extends AbstractBlock {
         int vboID = GL15.glGenBuffers();
 
         vbos.add(vboID);
+
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vboID);
         GL15.glBufferData(GL15.GL_ARRAY_BUFFER, BufferUtils.createFloatBuffer(data), GL15.GL_STATIC_DRAW);
         GL20.glVertexAttribPointer(attribute, dimensions, GL11.GL_FLOAT, false, 0, 0);
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
     }
 
+
     /**
      * Bind indices
-     * <p></p>
+     * <li>Adds to {@link #vbos vbo list} and clears at the end of program
      *
      * @param indices The indices to bind
      * @author 4347
@@ -747,60 +437,16 @@ public class Block extends AbstractBlock {
         int vboID = GL15.glGenBuffers();
 
         vbos.add(vboID);
+
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, vboID);
         GL15.glBufferData(GL15.GL_ELEMENT_ARRAY_BUFFER, BufferUtils.createIntBuffer(indices), GL15.GL_STATIC_DRAW);
     }
 
-    /**
-     * Clean up the vaos, vbos, textures
-     * <p></p>
-     *
-     * @author 4347
-     */
-    public static void cleanUp() {
-        vaos.forEach(GL30::glDeleteVertexArrays);                               //clean up the vaos
-        vbos.forEach(GL15::glDeleteBuffers);                                    //clean up the vbos
-        textures.forEach(GL11::glDeleteTextures);                               //clean up the textures
-    }
 
-    /**
-     * Returns a hash code value for the object. This method is
-     * supported for the benefit of hash tables such as those provided by
-     * {@link HashMap}.
-     * <p>
-     * The general contract of {@code hashCode} is:
-     * <ul>
-     * <li>Whenever it is invoked on the same object more than once during
-     *     an execution of a Java application, the {@code hashCode} method
-     *     must consistently return the same integer, provided no information
-     *     used in {@code equals} comparisons on the object is modified.
-     *     This integer need not remain consistent from one execution of an
-     *     application to another execution of the same application.
-     * <li>If two objects are equal according to the {@code equals(Object)}
-     *     method, then calling the {@code hashCode} method on each of
-     *     the two objects must produce the same integer result.
-     * <li>It is <em>not</em> required that if two objects are unequal
-     *     according to the {@link Object#equals(Object)}
-     *     method, then calling the {@code hashCode} method on each of the
-     *     two objects must produce distinct integer results.  However, the
-     *     programmer should be aware that producing distinct integer results
-     *     for unequal objects may improve the performance of hash tables.
-     * </ul>
-     * <p>
-     * As much as is reasonably practical, the hashCode method defined by
-     * class {@code Object} does return distinct integers for distinct
-     * objects. (This is typically implemented by converting the internal
-     * address of the object into an integer, but this implementation
-     * technique is not required by the
-     * Java&trade; programming language.)
-     *
-     * @return a hash code value for this object.
-     * @see Object#equals(Object)
-     * @see System#identityHashCode
-     */
-    @Override
-    public int hashCode() {
-        return super.hashCode();
+    public static void cleanUp() {
+        vaos.forEach(GL30::glDeleteVertexArrays);
+        vbos.forEach(GL15::glDeleteBuffers);
+        textures.forEach(GL11::glDeleteTextures);
     }
 
     /**
@@ -843,14 +489,169 @@ public class Block extends AbstractBlock {
      * general contract for the {@code hashCode} method, which states
      * that equal objects must have equal hash codes.
      *
-     * @param obj the reference object with which to compare.
+     * @param o the reference object with which to compare.
      * @return {@code true} if this object is the same as the obj
      * argument; {@code false} otherwise.
      * @see #hashCode()
      * @see HashMap
      */
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Block block = (Block) o;
+        return model.equals(block.model) && position.equals(block.position) && rotation.equals(block.rotation);
     }
+
+    /**
+     * Returns a hash code value for the object. This method is
+     * supported for the benefit of hash tables such as those provided by
+     * {@link HashMap}.
+     * <p>
+     * The general contract of {@code hashCode} is:
+     * <ul>
+     * <li>Whenever it is invoked on the same object more than once during
+     *     an execution of a Java application, the {@code hashCode} method
+     *     must consistently return the same integer, provided no information
+     *     used in {@code equals} comparisons on the object is modified.
+     *     This integer need not remain consistent from one execution of an
+     *     application to another execution of the same application.
+     * <li>If two objects are equal according to the {@code equals(Object)}
+     *     method, then calling the {@code hashCode} method on each of
+     *     the two objects must produce the same integer result.
+     * <li>It is <em>not</em> required that if two objects are unequal
+     *     according to the {@link Object#equals(Object)}
+     *     method, then calling the {@code hashCode} method on each of the
+     *     two objects must produce distinct integer results.  However, the
+     *     programmer should be aware that producing distinct integer results
+     *     for unequal objects may improve the performance of hash tables.
+     * </ul>
+     * <p>
+     * As much as is reasonably practical, the hashCode method defined by
+     * class {@code Object} does return distinct integers for distinct
+     * objects. (This is typically implemented by converting the internal
+     * address of the object into an integer, but this implementation
+     * technique is not required by the
+     * Java&trade; programming language.)
+     *
+     * @return a hash code value for this object.
+     * @see Object#equals(Object)
+     * @see System#identityHashCode
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, position, rotation);
+    }
+
+    /**
+     * Returns a string representation of the object. In general, the
+     * {@code toString} method returns a string that
+     * "textually represents" this object. The result should
+     * be a concise but informative representation that is easy for a
+     * person to read.
+     * It is recommended that all subclasses override this method.
+     * <p>
+     * The {@code toString} method for class {@code Object}
+     * returns a string consisting of the name of the class of which the
+     * object is an instance, the at-sign character `{@code @}', and
+     * the unsigned hexadecimal representation of the hash code of the
+     * object. In other words, this method returns a string equal to the
+     * value of:
+     * <blockquote>
+     * <pre>
+     * getClass().getName() + '@' + Integer.toHexString(hashCode())
+     * </pre></blockquote>
+     *
+     * @return a string representation of the object.
+     */
+    @Override
+    public String toString() {
+        return "Block{" +
+                "model=" + model +
+                ", position=" + position +
+                ", rotation=" + rotation +
+                '}';
+    }
+
+    /**
+     * <b>Enum</b> for {@link Block block} types
+     *
+     * @author 4347
+     * @see Block
+     */
+    public enum Type {
+
+        /**
+         * The enum for block type <b><i>AIR</i></b>
+         */
+        AIR("minecraft:air");
+
+        private static final Map<String, Type> keys = new HashMap<>();
+
+        /**
+         * The name of the type
+         */
+        public final String name;
+
+        /**
+         * Constructor for <b>Enum</b> {@link Type Type}
+         *
+         * @param name The name of the type
+         * @author 4347
+         */
+        Type(@NotNull String name) {
+            this.name = name;
+        }
+
+        /**
+         * Returns a string representation of the object. In general, the
+         * {@code toString} method returns a string that
+         * "textually represents" this object. The result should
+         * be a concise but informative representation that is easy for a
+         * person to read.
+         * It is recommended that all subclasses override this method.
+         * <p>
+         * The {@code toString} method for class {@code Object}
+         * returns a string consisting of the name of the class of which the
+         * object is an instance, the at-sign character `{@code @}', and
+         * the unsigned hexadecimal representation of the hash code of the
+         * object. In other words, this method returns a string equal to the
+         * value of:
+         * <blockquote>
+         * <pre>
+         * getClass().getName() + '@' + Integer.toHexString(hashCode())
+         * </pre></blockquote>
+         *
+         * @return a string representation of the object.
+         */
+        @Override
+        public String toString() {
+            return name;
+        }
+
+        static {
+            for (Type type : values()) {
+                keys.put(type.toString(), type);
+            }
+        }
+
+        /**
+         * Returns <i>{@link Type type}</i> by the name
+         *
+         * @param name The name of the type. If it doesn't start with <b>"minecraft:"</b> it will be automatically added
+         * @return The <i>{@link Type type}</i> by the name
+         * @author 4347
+         */
+        public static Type getByName(@NotNull String name) {
+
+            name = name.toLowerCase();
+
+            if (!name.startsWith("minecraft:"))
+                name = "minecraft:" + name;
+
+            return keys.get(name);
+        }
+
+    }
+
 }

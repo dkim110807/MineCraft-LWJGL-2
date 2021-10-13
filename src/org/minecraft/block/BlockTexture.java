@@ -1,15 +1,14 @@
 package org.minecraft.block;
 
-import org.minecraft.models.ModelTexture;
+public class BlockTexture {
 
-public class BlockTexture extends ModelTexture {
+    private final int textureId;
 
-    public BlockTexture(int textureID) {
-        super(textureID);
+    public BlockTexture(int textureId) {
+        this.textureId = textureId;
     }
 
-    @Override
-    public int getTextureID() {
-        return super.getTextureID();
+    public final int getTextureId() {
+        return textureId;
     }
 }

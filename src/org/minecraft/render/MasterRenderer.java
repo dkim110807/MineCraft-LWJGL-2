@@ -1,7 +1,7 @@
 package org.minecraft.render;
 
 import org.lwjgl.opengl.GL11;
-import org.minecraft.block.BlockRender;
+import org.minecraft.old.block.BlockRender;
 import org.minecraft.graphics.shader.Shader;
 import org.minecraft.models.Camera;
 import org.minecraft.models.Entity;
