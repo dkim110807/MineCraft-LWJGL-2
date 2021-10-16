@@ -1,6 +1,7 @@
 package org.minecraft.graphics.shader;
 
 import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.GL20;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
@@ -13,11 +14,10 @@ import java.util.Map;
 
 import static org.lwjgl.opengl.GL20.*;
 
-@SuppressWarnings("all")
 public class Shader {
 
     private final int ID;
-    private Map<String, Integer> locationCache = new HashMap<String, Integer>();
+    private final Map<String, Integer> locationCache = new HashMap<>();
 
     public Shader(String vertex, String fragment) {
         ID = ShaderUtils.load(vertex, fragment);
@@ -84,6 +84,11 @@ public class Shader {
 
     public void disable() {
         glUseProgram(0);
+    }
+
+    public void cleanUp() {
+        disable();
+        GL20.glDeleteProgram(ID);
     }
 
 }

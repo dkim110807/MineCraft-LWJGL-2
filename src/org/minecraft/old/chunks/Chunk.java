@@ -1,7 +1,8 @@
-package org.minecraft.chunks;
+package org.minecraft.old.chunks;
 
+import org.jetbrains.annotations.Nullable;
 import org.lwjgl.util.vector.Vector3f;
-import org.minecraft.block.Block;
+import org.minecraft.old.block.Block;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,23 +15,29 @@ public class Chunk {
 
     public List<Block> blocks;
     public Vector3f origin;
-    public Map<Vector3f,Block> posToBlock = new HashMap<>();
+    public Map<String,Block> posToBlock = new HashMap<>();
 
     public Chunk(List<Block> blocks, Vector3f origin) {
         this.blocks = blocks;
         this.origin = origin;
 
         for (Block block : blocks) {
-            posToBlock.put(block.getPosition(),block);
+            posToBlock.put(block.getPosition().toString(),block);
         }
     }
 
+    @Nullable
     public Block getBlockAt(Vector3f position) {
-        return posToBlock.getOrDefault(position,null);
+        return posToBlock.get(position);
     }
 
+    @Nullable
     public Block getBlockAt(float x,float y,float z) {
         return getBlockAt(new Vector3f(x,y,z));
+    }
+
+    public boolean isBlockIn(float x,float y,float z) {
+        return posToBlock.containsKey(new Vector3f(x,y,z).toString());
     }
 
 }

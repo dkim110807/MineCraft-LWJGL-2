@@ -6,17 +6,26 @@ import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 import org.lwjgl.util.vector.Vector3f;
+import org.minecraft.block.blocks.Dirt;
 import org.minecraft.graphics.TextureLoader;
 import org.minecraft.utils.buffer.BufferUtils;
+import org.minecraft.utils.matrix.MatrixUtils;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * <b>Class</b> for Block
+ *
+ * @author 4347
+ */
 public class Block extends BlockRender implements BlockI, Serializable {
 
     /**
      * The serial version
      */
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**
@@ -131,6 +140,29 @@ public class Block extends BlockRender implements BlockI, Serializable {
     };
 
     /**
+     * The default normal vector
+     */
+    protected static final float[] NORMALS = new float[]{
+            //Positive X
+            0.5f, 0.0f, 0.0f,
+
+            //Negative X
+            -0.5f, 0.0f, 0.0f,
+
+            //Positive Y
+            0.0f, 0.5f, 0.0f,
+
+            //Negative Y
+            0.0f, -0.5f, 0.0f,
+
+            //Positive Z
+            0.0f, 0.0f, 0.5f,
+
+            //Negative Z
+            0.0f, 0.0f, -0.5f
+    };
+
+    /**
      * The vaos to clear at the end of program
      *
      * @see #cleanUp()
@@ -222,6 +254,7 @@ public class Block extends BlockRender implements BlockI, Serializable {
      * @param model    The model of this block
      * @param position The position of this block
      * @param rotation The rotation of this block
+     * @author 4347
      */
     public Block(@NotNull BlockModel model, @NotNull Vector3f position, @NotNull Vector3f rotation) {
         this.model = model;
@@ -243,7 +276,7 @@ public class Block extends BlockRender implements BlockI, Serializable {
 
     /**
      * Returns the width of the block
-     * <li>Normally it will return <i>1f</i>
+     * <li>Normally it will return 1f
      *
      * @return The width of the block
      * @author 4347
@@ -255,6 +288,7 @@ public class Block extends BlockRender implements BlockI, Serializable {
 
     /**
      * Returns the height of the block
+     * <li>Normally it will return 1f
      *
      * @return The height of the block
      * @author 4347
@@ -311,8 +345,32 @@ public class Block extends BlockRender implements BlockI, Serializable {
      */
     @NotNull
     @Override
-    public BlockModel getModel() {
+    public final BlockModel getModel() {
         return model;
+    }
+
+    /**
+     * Returns the vertices of this block
+     *
+     * @return The vertices of this block
+     * @author 4347
+     */
+    @NotNull
+    @Override
+    public float[] getVertices() {
+        return VERTICES;
+    }
+
+    /**
+     * Returns the texture coordinates of this block
+     *
+     * @return The texture coordinates of this block
+     * @author 4347
+     */
+    @NotNull
+    @Override
+    public float[] getTCS() {
+        return TCS;
     }
 
     /**
@@ -350,7 +408,6 @@ public class Block extends BlockRender implements BlockI, Serializable {
      * @see BlockTexture
      */
     @NotNull
-    @SuppressWarnings("all")
     protected static BlockModel loadModel(@NotNull float[] vertices,
                                           @NotNull int[] indices,
                                           @NotNull float[] tcs,
@@ -360,6 +417,25 @@ public class Block extends BlockRender implements BlockI, Serializable {
 
         storeDataInAttributeList(vertices, 0, 3);
         storeDataInAttributeList(tcs, 1, 2);
+        bindIndicesBuffer(indices);
+
+        GL30.glBindVertexArray(0);
+
+        return new BlockModel(vao, indices.length, texture);
+    }
+
+    @NotNull
+    @SuppressWarnings("all")
+    protected static BlockModel loadModel(@NotNull float[] vertices,
+                                          @NotNull float[] tcs,
+                                          @NotNull float[] normals,
+                                          @NotNull int[] indices,
+                                          @NotNull BlockTexture texture) {
+        int vao = createVAO();
+
+        storeDataInAttributeList(vertices, 0, 3);
+        storeDataInAttributeList(tcs, 1, 2);
+        storeDataInAttributeList(normals, 2, 3);
         bindIndicesBuffer(indices);
 
         GL30.glBindVertexArray(0);
@@ -377,7 +453,7 @@ public class Block extends BlockRender implements BlockI, Serializable {
      */
     protected static int loadTexture(@NotNull String path) {
         try {
-            int texture = TextureLoader.getTexture(path);
+            int texture = TextureLoader.getTexture("../../../res/" + path);
 
             textures.add(texture);
 
@@ -559,7 +635,7 @@ public class Block extends BlockRender implements BlockI, Serializable {
      * value of:
      * <blockquote>
      * <pre>
-     * getClass().getName() + '@' + Integer.toHexString(hashCode())
+     * Block{model= , position= , rotation=}
      * </pre></blockquote>
      *
      * @return a string representation of the object.
@@ -574,6 +650,20 @@ public class Block extends BlockRender implements BlockI, Serializable {
     }
 
     /**
+     * Prepare the shader
+     *
+     * @author 4347
+     */
+    public static void prepare() {
+        shader.enable();
+        shader.setUniform1i("tex", 1);
+        shader.setUniformMat4f("pr_matrix", MatrixUtils.createProjectionMatrix());
+        shader.disable();
+
+        new Dirt(0,0,0);
+    }
+
+    /**
      * <b>Enum</b> for {@link Block block} types
      *
      * @author 4347
@@ -582,9 +672,14 @@ public class Block extends BlockRender implements BlockI, Serializable {
     public enum Type {
 
         /**
-         * The enum for block type <b><i>AIR</i></b>
+         * The {@code enum} for block type <b><i>AIR</i></b>
          */
-        AIR("minecraft:air");
+        AIR("minecraft:air"),
+
+        /**
+         * The {@code enum} for block type <b><i>DIRT</i></b>
+         */
+        DIRT("minecraft:dirt");
 
         private static final Map<String, Type> keys = new HashMap<>();
 
@@ -619,19 +714,21 @@ public class Block extends BlockRender implements BlockI, Serializable {
          * value of:
          * <blockquote>
          * <pre>
-         * getClass().getName() + '@' + Integer.toHexString(hashCode())
+         * Type{name=+Type.name+}
          * </pre></blockquote>
          *
          * @return a string representation of the object.
          */
         @Override
         public String toString() {
-            return name;
+            return "Type{name"
+                    + name
+                    + "}";
         }
 
         static {
             for (Type type : values()) {
-                keys.put(type.toString(), type);
+                keys.put(type.name, type);
             }
         }
 

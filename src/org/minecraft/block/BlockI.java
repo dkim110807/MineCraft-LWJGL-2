@@ -73,4 +73,22 @@ public interface BlockI {
     @NotNull
     Block.Type getType();
 
+    /**
+     * Returns the vertices of this block
+     *
+     * @return The vertices of this block
+     * @author 4347
+     */
+    @NotNull
+    float[] getVertices();
+
+    /**
+     * Returns the texture coordinates of this block
+     *
+     * @return The texture coordinates of this block
+     * @author 4347
+     */
+    @NotNull
+    float[] getTCS();
+
 }

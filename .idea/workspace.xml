@@ -5,8 +5,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="160c6e0d-d8d1-45e9-862b-c649a4bfabf9" name="Default Changelist" comment="MineCraft">
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/block/BlockMesh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/block/block.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/block/block.vert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/block/blocks/Dirt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/gui/GuiLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/gui/GuiModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/gui/GuiRender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/gui/GuiShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/gui/GuiTexture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/gui/gui.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/gui/gui.vert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/utils/tuple/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/world/chunk/Chunk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/blocks/leaves/OakLeaves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/blocks/leaves/OakLeaves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MineCraft.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MineCraft.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/DisplayManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/DisplayManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/chunks/Chunk.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/chunks/ChunkMesh.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/graphics/Texture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/graphics/Texture.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/graphics/TextureLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/graphics/TextureLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/graphics/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/graphics/Vertex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/graphics/shader/Shader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/graphics/shader/Shader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/Camera.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/ModelTexture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/ModelTexture.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/RawModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/RawModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/TexturedModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/TexturedModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/render/EntityRender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/render/EntityRender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/render/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/render/Loader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/render/MasterRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/render/MasterRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/utils/buffer/BufferUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/utils/buffer/BufferUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/utils/file/FileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/utils/file/FileUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/utils/matrix/MatrixUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/utils/matrix/MatrixUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/utils/shader/ShaderUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/utils/shader/ShaderUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/world/PerlinNoise.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/world/PerlinNoise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/BlockI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/BlockI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/BlockModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/BlockModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/BlockRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/BlockRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/BlockTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/BlockTexture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/chunks/Chunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/old/chunks/Chunk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/chunks/ChunkMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/old/chunks/ChunkMesh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/graphics/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/graphics/shader/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/shader/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/old/block/BlockMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/old/block/BlockMesh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/render/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/render/MasterRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/minecraft/utils/matrix/MatrixUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/utils/matrix/MatrixUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +66,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="GLSL Shader" />
         <option value="Class" />
+        <option value="GLSL Shader" />
       </list>
     </option>
   </component>
@@ -44,6 +93,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/libs/lwjgl_util.jar!/org/lwjgl/util/vector/Vector3f.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectId" id="1yzZYTj9JLmfkQfBJdtVkLOhhC4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -57,11 +109,12 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../자바/OpenGL" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunManager">
     <configuration name="Run" type="Application" factoryName="Application">
@@ -172,7 +225,28 @@
       <option name="project" value="LOCAL" />
       <updated>1633939601350</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="MineCraft">
+      <created>1634028604908</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1634028604908</updated>
+    </task>
+    <task id="LOCAL-00015" summary="O(N^2) -&gt; O(N)">
+      <created>1634039237964</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1634039237964</updated>
+    </task>
+    <task id="LOCAL-00016" summary="MineCraft">
+      <created>1634124860038</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1634124860038</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +265,7 @@
     <MESSAGE value="Main Class" />
     <MESSAGE value="Block Class" />
     <MESSAGE value="Bedrock" />
+    <MESSAGE value="O(N^2) -&gt; O(N)" />
     <MESSAGE value="MineCraft" />
     <option name="LAST_COMMIT_MESSAGE" value="MineCraft" />
   </component>

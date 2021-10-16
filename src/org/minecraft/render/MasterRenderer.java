@@ -34,6 +34,7 @@ public class MasterRenderer {
         shader.disable();
 
         BlockRender.render(camera);
+        org.minecraft.block.BlockRender.render(camera);
 
         entities.clear();
     }

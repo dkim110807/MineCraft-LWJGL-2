@@ -18,7 +18,10 @@ import java.util.Map;
 
 public class BlockRender {
 
-    public static final Shader shader = new Shader("src/org/minecraft/old/block/block.vert","src/org/minecraft/old/block/block.frag");
+    /**
+     * The shader
+     */
+    protected static final Shader shader = new Shader("src/org/minecraft/block/block.vert","src/org/minecraft/block/block.frag");
 
     private static final Map<BlockModel, List<Block>> blocks = new HashMap<>();
 

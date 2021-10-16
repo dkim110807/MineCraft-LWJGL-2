@@ -2,21 +2,19 @@ package org.minecraft;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Vector3f;
-import org.minecraft.block.Block;
-import org.minecraft.block.BlockMesh;
-import org.minecraft.block.BlockRender;
-import org.minecraft.block.blocks.Bedrock;
-import org.minecraft.block.blocks.Dirt;
-import org.minecraft.block.blocks.Grass;
-import org.minecraft.block.blocks.Stone;
-import org.minecraft.block.blocks.leaves.OakLeaves;
-import org.minecraft.block.blocks.logs.OakLog;
-import org.minecraft.chunks.Chunk;
+import org.minecraft.block.BlockTexture;
 import org.minecraft.graphics.shader.Shader;
 import org.minecraft.models.Camera;
-import org.minecraft.models.ModelTexture;
-import org.minecraft.models.RawModel;
-import org.minecraft.models.TexturedModel;
+import org.minecraft.old.block.Block;
+import org.minecraft.old.block.BlockMesh;
+import org.minecraft.old.block.BlockRender;
+import org.minecraft.old.block.blocks.Bedrock;
+import org.minecraft.old.block.blocks.Dirt;
+import org.minecraft.old.block.blocks.Grass;
+import org.minecraft.old.block.blocks.Stone;
+import org.minecraft.old.block.blocks.leaves.OakLeaves;
+import org.minecraft.old.block.blocks.logs.OakLog;
+import org.minecraft.old.chunks.Chunk;
 import org.minecraft.render.Loader;
 import org.minecraft.render.MasterRenderer;
 import org.minecraft.utils.matrix.MatrixUtils;
@@ -34,9 +32,10 @@ public class Main {
     public static final float FAR = 1000f;
 
     public static final int WORLD_SIZE = 64;
+    public static final int REMOVE_DISTANCE = WORLD_SIZE * 10;
 
-    private static List<BlockMesh> meshes = Collections.synchronizedList(new ArrayList<>());
-    private static List<Vector3f> used = new ArrayList<>();
+    private static final List<BlockMesh> meshes = Collections.synchronizedList(new ArrayList<>());
+    private static final List<Vector3f> used = new ArrayList<>();
 
     private static boolean close = false;
 
@@ -49,106 +48,30 @@ public class Main {
         MasterRenderer renderer = new MasterRenderer();
         Loader loader = new Loader();
 
-        float[] vertices = {
-                -0.5f, 0.5f, -0.5f,
-                -0.5f, -0.5f, -0.5f,
-                0.5f, -0.5f, -0.5f,
-                0.5f, 0.5f, -0.5f,
-
-                -0.5f, 0.5f, 0.5f,
-                -0.5f, -0.5f, 0.5f,
-                0.5f, -0.5f, 0.5f,
-                0.5f, 0.5f, 0.5f,
-
-                0.5f, 0.5f, -0.5f,
-                0.5f, -0.5f, -0.5f,
-                0.5f, -0.5f, 0.5f,
-                0.5f, 0.5f, 0.5f,
-
-                -0.5f, 0.5f, -0.5f,
-                -0.5f, -0.5f, -0.5f,
-                -0.5f, -0.5f, 0.5f,
-                -0.5f, 0.5f, 0.5f,
-
-                -0.5f, 0.5f, 0.5f,
-                -0.5f, 0.5f, -0.5f,
-                0.5f, 0.5f, -0.5f,
-                0.5f, 0.5f, 0.5f,
-
-                -0.5f, -0.5f, 0.5f,
-                -0.5f, -0.5f, -0.5f,
-                0.5f, -0.5f, -0.5f,
-                0.5f, -0.5f, 0.5f
-
-        };
-
-        float[] tcs = {
-
-                0, 0,
-                0, 1,
-                1, 1,
-                1, 0,
-                0, 0,
-                0, 1,
-                1, 1,
-                1, 0,
-                0, 0,
-                0, 1,
-                1, 1,
-                1, 0,
-                0, 0,
-                0, 1,
-                1, 1,
-                1, 0,
-                0, 0,
-                0, 1,
-                1, 1,
-                1, 0,
-                0, 0,
-                0, 1,
-                1, 1,
-                1, 0
-
-
-        };
-
-        int[] indices = {
-                0, 1, 3,
-                3, 1, 2,
-                4, 5, 7,
-                7, 5, 6,
-                8, 9, 11,
-                11, 9, 10,
-                12, 13, 15,
-                15, 13, 14,
-                16, 17, 19,
-                19, 17, 18,
-                20, 21, 23,
-                23, 21, 22
-        };
-
-        RawModel model = loader.loadToVao(vertices, indices, tcs);
-        ModelTexture texture = new ModelTexture(loader.loadTexture("dirt.png"));
-        TexturedModel texModel = new TexturedModel(model, texture);
-        //Entity entity = new Entity(texModel, new Vector3f(0, 0, -1), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
         Camera camera = new Camera(new Vector3f(0, 60, 0), new Vector3f(0, 0, 0));
 
         Shader shader = new Shader("src/org/minecraft/graphics/shader/main.vert", "src/org/minecraft/graphics/shader/main.frag");
+        shader.enable();
         shader.setUniform1i("tex", 1);
         shader.setUniformMat4f("pr_matrix", MatrixUtils.createProjectionMatrix());
+        shader.disable();
 
         Shader block = BlockRender.shader;
+        block.enable();
         block.setUniform1i("tex", 1);
         block.setUniformMat4f("pr_matrix", MatrixUtils.createProjectionMatrix());
+        block.disable();
 
-        new Dirt(new Vector3f(0,0,0));
-        new Grass(0,0,0);
-        new Stone(0,0,0);
-        new Bedrock(0,0,0);
-        new OakLog(0,0,0);
-        new OakLeaves(0,0,0);
+        org.minecraft.block.Block.prepare();
 
-        AtomicInteger totalBlocks = new AtomicInteger();
+        new Dirt(new Vector3f(0, 0, 0));
+        new Grass(0, 0, 0);
+        new Stone(0, 0, 0);
+        new Bedrock(0, 0, 0);
+        new OakLog(0, 0, 0);
+        new OakLeaves(0, 0, 0);
+
+        AtomicInteger total = new AtomicInteger(0);
 
         new Thread(() -> {
 
@@ -164,8 +87,8 @@ public class Main {
 
                                     int height = (int) noise.generateHeight(x * Chunk.SIZE + i, z * Chunk.SIZE + j);
 
-                                    blocks.add(new Bedrock(new Vector3f(i, 49, j)));
-                                    for (int k = 50; k <= height + 56; k++) {
+                                    blocks.add(new Bedrock(new Vector3f(i, 54, j)));
+                                    for (int k = 55; k <= height + 56; k++) {
                                         blocks.add(new Stone(new Vector3f(i, k, j)));
                                     }
                                     blocks.add(new Dirt(new Vector3f(i, height + 57, j)));
@@ -175,7 +98,7 @@ public class Main {
                                 }
                             }
 
-                            totalBlocks.addAndGet(blocks.size());
+                            total.addAndGet(blocks.size());
 
                             BlockMesh mesh = new BlockMesh(new Chunk(blocks, new Vector3f(x * Chunk.SIZE, 0, z * Chunk.SIZE)));
 
@@ -202,19 +125,19 @@ public class Main {
 
                 BlockMesh mesh = meshes.get(index);
 
-                blocks.add(new Block(loader.load(mesh.positions,mesh.tcs,  Block.TEXTURE),mesh.origin));
+                blocks.add(new Block(loader.load(mesh.positions, mesh.tcs, Block.TEXTURE), mesh.origin));
 
                 mesh.positions = null;
                 mesh.tcs = null;
 
                 index++;
 
-                System.out.println(totalBlocks + " BLOCKS");
+                System.out.println(total + " blocks");
             }
 
-            for (int i = 0; i < blocks.size(); i++) {
+            for (Block value : blocks) {
 
-                Vector3f origin = blocks.get(i).getPosition();
+                Vector3f origin = value.getPosition();
 
                 int distX = (int) (camera.getPosition().x - origin.x);
                 int distZ = (int) (camera.getPosition().z - origin.z);
@@ -223,7 +146,7 @@ public class Main {
                 distZ = Math.abs(distZ);
 
                 if ((distX <= WORLD_SIZE) && (distZ <= WORLD_SIZE)) {
-                    blocks.get(i).add();
+                    value.add();
                 }
 
             }
@@ -245,6 +168,7 @@ public class Main {
         DisplayManager.closeDisplay();
         loader.cleanUp();
         Block.cleanUp();
+        BlockTexture.cleanUp();
         close = true;
     }
 
