@@ -37,6 +37,7 @@ public final class DisplayManager {
             Display.create(new PixelFormat(), attribs);
             Display.setTitle("MineCraft");
             GL11.glViewport(0, 0, Display.getWidth(), Display.getHeight());
+            lastFrameTime = getCurrentTime();
         } catch (LWJGLException e) {
             e.printStackTrace();
         }
@@ -50,6 +51,7 @@ public final class DisplayManager {
 
         long currentFrameTime = getCurrentTime();
         delta = (currentFrameTime - lastFrameTime) / 1000f;
+        lastFrameTime = currentFrameTime;
 
         while (Keyboard.next()) {
             if (Keyboard.getEventKeyState()) {
@@ -68,6 +70,10 @@ public final class DisplayManager {
     public static void closeDisplay() {
         Display.destroy();
         System.exit(0);
+    }
+
+    public static float getFrameTimeSeconds() {
+        return delta;
     }
 
     private static long getCurrentTime() {

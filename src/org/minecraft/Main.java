@@ -23,6 +23,7 @@ import org.minecraft.old.chunks.Chunk;
 import org.minecraft.render.Loader;
 import org.minecraft.render.MasterRenderer;
 import org.minecraft.skybox.SkyboxLoader;
+import org.minecraft.utils.MousePicker;
 import org.minecraft.utils.matrix.MatrixUtils;
 import org.minecraft.world.PerlinNoise;
 
@@ -75,6 +76,8 @@ public final class Main {
         text.setOutlineColour(0.1f,0.5f,0.1f);
 
         Camera camera = new Camera(new Vector3f(0, 60, 0), new Vector3f(0, 0, 0));
+
+        MousePicker picker = new MousePicker(camera,MatrixUtils.createProjectionMatrix());
 
         Shader shader = new Shader("src/org/minecraft/graphics/shader/main.vert", "src/org/minecraft/graphics/shader/main.frag");
         shader.enable();
@@ -146,6 +149,8 @@ public final class Main {
         while (!Display.isCloseRequested()) {
 
             camera.move();
+
+            picker.update();
 
             if (index < meshes.size()) {
 

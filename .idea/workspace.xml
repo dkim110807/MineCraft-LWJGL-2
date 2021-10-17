@@ -5,78 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="160c6e0d-d8d1-45e9-862b-c649a4bfabf9" name="Default Changelist" comment="MineCraft">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/libs2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/natives2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/decoder/PNGDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/mesh/Character.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/mesh/FontType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/mesh/GUIText.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/mesh/Line.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/mesh/MetaFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/mesh/TextMeshCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/mesh/TextMeshData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/mesh/Word.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/render/FontLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/render/FontModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/render/FontRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/render/FontShader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/render/TextMaster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/render/font.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/font/render/font.vert" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/texture/TextureData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/skybox/SkyboxLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/skybox/SkyboxModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/skybox/SkyboxRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/skybox/SkyboxShader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/skybox/skybox.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/minecraft/skybox/skybox.vert" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/arial.fnt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/arial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/berlinSans.fnt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/berlinSans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/calibri.fnt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/calibri.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/candara.fnt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/candara.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/harrington.fnt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/harrington.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/sans.fnt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/sans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/segoe.fnt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/segoe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/segoeUI.fnt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/segoeUI.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/tahoma.fnt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fonts/tahoma.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/skybox/back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/skybox/bottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/skybox/front.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/skybox/left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/skybox/right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/skybox/top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/entity/Damageable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/entity/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/entity/EntityModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/entity/EntityTexture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/entity/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/minecraft/utils/MousePicker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MineCraft.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MineCraft.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/DisplayManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/DisplayManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/graphics/TextureLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/graphics/TextureLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/models/Camera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/render/MasterRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MineCraft/org/minecraft/render/MasterRenderer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/minecraft/DisplayManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/DisplayManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/minecraft/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/BlockI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/BlockI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/BlockMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/BlockMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/BlockRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/BlockRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/block.frag" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/block.frag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/block.vert" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/block.vert" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/block/blocks/Dirt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/block/blocks/Dirt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/graphics/TextureLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/graphics/TextureLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/gui/GuiLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/gui/GuiLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/gui/GuiModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/gui/GuiModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/gui/GuiShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/gui/GuiShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/old/block/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/old/block/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/minecraft/render/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/minecraft/render/MasterRenderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +25,7 @@
       <list>
         <option value="Enum" />
         <option value="GLSL Shader" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -277,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634346372170</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="MineCraft">
+      <created>1634448523855</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1634448523858</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
