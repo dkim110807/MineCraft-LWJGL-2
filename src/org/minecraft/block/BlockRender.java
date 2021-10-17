@@ -28,6 +28,7 @@ public class BlockRender {
     public static void render(Camera camera) {
 
         shader.enable();
+        shader.setUniform3f("skyColour",0.5f,0.5f,0.5f);
         shader.setUniformMat4f("vw_matrix",MatrixUtils.createViewMatrix(camera));
 
         for (BlockModel model : blocks.keySet()) {

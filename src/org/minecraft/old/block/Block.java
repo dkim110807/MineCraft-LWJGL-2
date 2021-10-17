@@ -1,10 +1,7 @@
 package org.minecraft.old.block;
 
 import org.jetbrains.annotations.NotNull;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL30;
+import org.lwjgl.opengl.*;
 import org.lwjgl.util.vector.Vector3f;
 import org.minecraft.old.block.blocks.Bedrock;
 import org.minecraft.old.block.blocks.logs.OakLog;
@@ -696,12 +693,17 @@ public class Block extends AbstractBlock {
 
         try {
             int texture = TextureLoader.getTexture("../../../res/" + path);
+
+            GL30.glGenerateMipmap(GL11.GL_TEXTURE_2D);
+            GL11.glTexParameteri(GL11.GL_TEXTURE_2D,GL11.GL_TEXTURE_MIN_FILTER,GL11.GL_LINEAR_MIPMAP_LINEAR);
+            GL11.glTexParameterf(GL11.GL_TEXTURE_2D, GL14.GL_TEXTURE_LOD_BIAS,-0.4f);
+
             textures.add(texture);
 
             return texture;
-
         } catch (Exception e) {
             e.printStackTrace();
+
             return -1;
         }
     }

@@ -263,7 +263,6 @@ public final class Dirt extends Block implements Serializable {
      * @return The texture coordinates of this block
      * @author 4347
      */
-    @NotNull
     @Override
     public float[] getTCS() {
         return TCS;

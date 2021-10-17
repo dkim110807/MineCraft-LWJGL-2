@@ -1,11 +1,20 @@
 package org.minecraft.gui;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
  * Model for gui
  *
  * @author 4347
  */
-public final class GuiModel implements Cloneable{
+public final class GuiModel implements Serializable,Cloneable{
+
+    /**
+     * The serial version
+     */
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     /**
      * The vao id of the model

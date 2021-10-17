@@ -11,6 +11,4 @@ public final class GuiShader extends Shader {
         super(VERTEX, FRAGMENT);
     }
 
-
-
 }

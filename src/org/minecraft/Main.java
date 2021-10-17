@@ -1,8 +1,13 @@
 package org.minecraft;
 
 import org.lwjgl.opengl.Display;
+import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 import org.minecraft.block.BlockTexture;
+import org.minecraft.graphics.font.mesh.FontType;
+import org.minecraft.graphics.font.mesh.GUIText;
+import org.minecraft.graphics.font.render.FontLoader;
+import org.minecraft.graphics.font.render.TextMaster;
 import org.minecraft.graphics.shader.Shader;
 import org.minecraft.models.Camera;
 import org.minecraft.old.block.Block;
@@ -17,22 +22,37 @@ import org.minecraft.old.block.blocks.logs.OakLog;
 import org.minecraft.old.chunks.Chunk;
 import org.minecraft.render.Loader;
 import org.minecraft.render.MasterRenderer;
+import org.minecraft.skybox.SkyboxLoader;
 import org.minecraft.utils.matrix.MatrixUtils;
 import org.minecraft.world.PerlinNoise;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Main {
+public final class Main {
 
+    /**
+     * The field of view
+     */
     public static final float FOV = 70f;
+
+    /**
+     * The near plane
+     */
     public static final float NEAR = 0.01f;
+
+    /**
+     * The far plane
+     */
     public static final float FAR = 1000f;
 
+    /**
+     * The world size
+     */
     public static final int WORLD_SIZE = 64;
-    public static final int REMOVE_DISTANCE = WORLD_SIZE * 10;
 
     private static final List<BlockMesh> meshes = Collections.synchronizedList(new ArrayList<>());
     private static final List<Vector3f> used = new ArrayList<>();
@@ -47,6 +67,12 @@ public class Main {
 
         MasterRenderer renderer = new MasterRenderer();
         Loader loader = new Loader();
+        TextMaster.init();
+
+        FontType font = new FontType(FontLoader.loadTexture("fonts/candara.png"), new File("src/res/fonts/candara.fnt"));
+        GUIText text = new GUIText("This is a test", 3, font, new Vector2f(0.4f, 0.4f), 1f, false);
+        text.setColour(0.5f,0.1f,0.1f);
+        text.setOutlineColour(0.1f,0.5f,0.1f);
 
         Camera camera = new Camera(new Vector3f(0, 60, 0), new Vector3f(0, 0, 0));
 
@@ -64,7 +90,7 @@ public class Main {
 
         org.minecraft.block.Block.prepare();
 
-        new Dirt(new Vector3f(0, 0, 0));
+        new Dirt(0, 0, 0);
         new Grass(0, 0, 0);
         new Stone(0, 0, 0);
         new Bedrock(0, 0, 0);
@@ -152,6 +178,7 @@ public class Main {
             }
 
             renderer.render(shader, camera);
+            TextMaster.render();
 
             DisplayManager.updateDisplay();
 
@@ -165,11 +192,16 @@ public class Main {
 
         }
 
+        close = true;
+
+        //************ Clean Ups **********
+
+        TextMaster.cleanUp();
         DisplayManager.closeDisplay();
         loader.cleanUp();
         Block.cleanUp();
         BlockTexture.cleanUp();
-        close = true;
+        SkyboxLoader.cleanUp();
     }
 
 }

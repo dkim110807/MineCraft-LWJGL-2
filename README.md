@@ -2,6 +2,4 @@
 
 Minecraft with LWJGL 2
 
-Still developing!!
-
-Working on slabs
+Fixing memory problems

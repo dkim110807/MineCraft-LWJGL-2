@@ -4,20 +4,21 @@ import org.minecraft.utils.buffer.BufferUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Objects;
 
 import static org.lwjgl.opengl.GL11.*;
 
-public class TextureLoader {
+public final class TextureLoader {
 
-    private TextureLoader() {}
+    private TextureLoader() {
+    }
 
     public static int getTexture(String path) {
         int width, height;
         int[] pixels;
         try {
-            BufferedImage image = ImageIO.read(TextureLoader.class.getResourceAsStream(path));
+            BufferedImage image = ImageIO.read(Objects.requireNonNull(TextureLoader.class.getResourceAsStream(path)));
             width = image.getWidth();
             height = image.getHeight();
             pixels = new int[width * height];

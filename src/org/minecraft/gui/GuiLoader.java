@@ -20,6 +20,13 @@ public final class GuiLoader {
     private GuiLoader() {
     }
 
+    /**
+     * Returns the {@link GuiModel} with the positions loaded to vao
+     *
+     * @param positions The positions of the model
+     * @return The model with the positions loaded to vao
+     * @author 4347
+     */
     public static GuiModel loadToVAO(float[] positions) {
         int vaoID = createVAO();
 

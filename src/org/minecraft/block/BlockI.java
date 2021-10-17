@@ -79,7 +79,6 @@ public interface BlockI {
      * @return The vertices of this block
      * @author 4347
      */
-    @NotNull
     float[] getVertices();
 
     /**
@@ -88,7 +87,6 @@ public interface BlockI {
      * @return The texture coordinates of this block
      * @author 4347
      */
-    @NotNull
     float[] getTCS();
 
 }
